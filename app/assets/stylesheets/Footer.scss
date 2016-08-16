@@ -1,0 +1,233 @@
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
+/*@import '../variables.css';*/
+@import 'variables.scss';
+
+.footer {
+    color: #fff;
+    background: #000;
+}
+
+.footer-viewport {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    color: rgba(255, 255, 255, .3);
+    text-align: center;
+}
+
+.b-footer {
+    position: relative;
+    max-width: $layout-max-width;
+    padding: 35px 15px 15px;
+    margin: 0 auto;
+}
+
+.b-footer-info {
+    @extend .clearfix;
+    text-align: left;
+}
+
+.b-footer-info__links {
+    float: left;
+    width: 100%;
+    padding-right: 250px;
+}
+
+.b-footer-links a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.b-footer-links__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+}
+
+.b-footer-links__link {
+    display: inline-block;
+    width: 50%;
+    padding: 6px 0;
+    font-size: 15px;
+}
+
+.b-footer-social__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.b-footer-social__link {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+/*social links*/
+
+.b-footer-info__right {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 250px;
+    margin-left: -250px;
+    text-align: right;
+}
+
+.b-social-and-phone {
+    margin-top: 6px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: asset_data_url("social-buttons-sprite.png");
+    background-repeat: no-repeat;
+}
+
+.social-icon__vkontakte:hover {
+    background-position: 0 -33px;
+}
+
+.social-icon__odnoklassniki {
+    background-position: -33px 0;
+}
+
+.social-icon__odnoklassniki:hover {
+    background-position: -33px -33px;
+}
+
+.social-icon__facebook {
+    background-position: -66px 0;
+}
+
+.social-icon__facebook:hover {
+    background-position: -66px -33px;
+}
+
+.social-icon__twitter {
+    background-position: -99px 0;
+}
+
+.social-icon__twitter:hover {
+    background-position: -99px -33px;
+}
+
+.social-icon__pinterest {
+    background-position: -132px 0;
+}
+
+.social-icon__pinterest:hover {
+    background-position: -132px -33px;
+}
+
+.social-icon__youtube {
+    background-position: -165px 0;
+}
+
+.social-icon__youtube:hover {
+    background-position: -165px -33px;
+}
+
+/*phone*/
+.b-social-and-phone__phone {
+    margin-top: 25px;
+}
+
+.b-footer-phone__text {
+    font-size: 12px;
+    color: #818589;
+}
+
+.b-footer-phone__phone {
+    margin-top: 8px;
+    font-size: 28px;
+    color: #fff;
+}
+
+.b-footer-phone__phone a {
+    color: #fff;
+}
+
+/*company*/
+
+.b-comp-info {
+    padding: 20px 0 50px;
+    margin-top: 30px;
+    font-size: 9px;
+    color: #818589;
+    text-align: justify;
+    border-top: 1px solid #262626;
+}
+
+.b-comp-info a {
+    color: #818589;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.b-comp-info__text {
+    display: inline-block;
+    max-width: 65%;
+}
+
+.b-comp-info__copyright {
+    display: inline-block;
+    float: right;
+    max-width: 30%;
+}
+
+/*tripadvisor*/
+
+.b-trip-votes {
+    text-align: left;
+}
+
+.b-trip-votes__votes {
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+}
+
+.b-trip-votes__logo {
+    display: inline-block;
+    width: 110px;
+    height: 19px;
+    margin-left: 5px;
+    background: asset_data_url("tripadvisor-white.png");
+}
+
+@media (max-width: 500px) {
+    .b-footer-info {
+        text-align: center;
+    }
+
+    .b-footer-info__links {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .b-footer-info__right {
+        float: none;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: $mobile-max-width) {
+    .footer {
+        display: none;
+    }
+}

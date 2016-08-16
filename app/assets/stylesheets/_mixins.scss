@@ -13,3 +13,11 @@
     border-right: $size solid transparent;
     border-left: $size solid transparent;
 }
+
+.clearfix{
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
