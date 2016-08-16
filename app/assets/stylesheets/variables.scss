@@ -1,0 +1,200 @@
+$font-family-base: 'RobotoRegular', Arial, sans-serif;
+$font-family-medium: 'RobotoMedium', Arial, sans-serif;
+
+/* BEGIN Layout */
+// 960 + 15*2
+$layout-max-width: 990px;
+$layout-horizontal-padding: 15px;
+$layout-mobile-horizontal-padding: 5px;
+$padding-base-vertical: 11px;
+$padding-base-horizontal: 15px;
+$font-size-base: 15px;
+$line-height-base: 1.428571429;
+$line-height-computed: $font-size-base * $line-height-base;
+$mobile-max-width: 480px;
+$tablet-max-width: 640px;
+/* END Layout */
+
+/* BEGIN Animations */
+$animation-speed: .2s;
+/* END Animations */
+
+/* BEGIN BORDER-RADIUS */
+$base-border-radius: 2px;
+$small-border-radius: 1px;
+/* END BORDER-RADIUS */
+
+/* BEGIN COLORS */
+$black: rgba(0, 0, 0, 0.87);
+$gray: rgba(0, 0, 0, 0.54);
+$gray-2: rgba(0, 0, 0, .3);
+$gray-3: #7D7D7D;
+$gray-4: rgba(0, 0, 0, .2);
+$gray-light: rgba(0, 0, 0, .1);
+$gray-light-1: rgba(0, 0, 0, .05);
+$base-text-color: $black;
+$base-text-color-mobile: $black;
+$white: #fff;
+$green: #89c13a;
+$red: #e30514;
+$link-color: #1b74b3;
+$color-secondary: #f0bd4e;
+$color-blue: #5172CB;
+/* END COLORS */
+
+/* BEGIN b-search-form */
+$b-search-form-max-width: $layout-max-width;
+$b-search-form-bg: rgba(0, 0, 0, 0.50);
+$b-search-form-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+$b-search-form-border-radius: $base-border-radius + 1;
+$b-search-form__form-padding-vertical: 8px;
+$b-search-form__form-padding-horizontal: 8px;
+$b-search-form__form-offset-ceil-horizontal: 8px;
+$b-search-form__form-offset-ceil-vertical: 8px;
+
+$b-search-form-horizontal-padding: $layout-horizontal-padding - $b-search-form__form-padding-horizontal;
+/* END b-search-form */
+
+/* BEGIN b-tabs-nav */
+$b-tabs-nav__item-color: $white;
+$b-tabs-nav__item-bg: rgba(33, 33, 33, .6);
+$b-tabs-nav__item-hover-bg: rgba(33, 33, 33, .75);
+$b-tabs-nav__item-active-bg: $b-search-form-bg;
+$b-tabs-nav__item-border-radius: $base-border-radius;
+$b-tabs-nav__item-margin-right: 2px;
+$b-tabs-nav__item-padding-vertical: $padding-base-vertical;
+$b-tabs-nav__item-padding-horizontal: 20px;
+$b-tabs-nav__item-font-size: 20px;
+$b-tabs-nav__item-font-family: "RobotoMedium";
+/* END b-tabs-nav */
+
+/* BEGIN b-suggest */
+$b-suggest-overlay-input-height: 45px;
+$b-suggest-overlay-input-vertical-padding: 8.5px;
+$b-suggest-border-radius: $small-border-radius;
+$b-suggest-overlay__close-bg: rgba(0, 0, 0, 0);
+$b-suggest-overlay__close-color: darken($green, 5%);
+$b-suggest-overlay__close-bg_hover: rgba(0, 0, 0, .05);
+$b-suggest-overlay__close-color_hover: darken($green, 10%);
+$b-suggest-overlay__close-bg_active: rgba(0, 0, 0, .22);
+$b-suggest-overlay__close-color_active: $red;
+/* END b-suggest */
+
+/* BEGIN btn */
+$btn-border-radius: $base-border-radius;
+$btn-line-height: $line-height-computed;
+$btn-font-size: 20px;
+$btn-padding-horizontal: 20px;
+$btn-padding-vertical: $padding-base-vertical;
+
+$btn-small-border-radius: $base-border-radius;
+$btn-small-line-height: $line-height-computed;
+$btn-small-font-size: 16px;
+$btn-small-padding-horizontal: 20px;
+$btn-small-padding-vertical: 6px;
+
+$btn-green-color: $white;
+$btn-green-bg: $green;
+/* END btn */
+
+/* BEGIN recommended bundle */
+$recommended-bundle-max-mobile-width: 640px;
+/* END recommended bundle */
+
+/* BEGIN datepicker */
+$b-datepicker-offset: 5px;
+$b-datepicker-font-size: 15px;
+$b-datepicker-transition: all .1s ease;
+$b-datepicker-bg-color: $white;
+$b-datepicker-head__control-bg: $gray-light;
+$b-datepicker-head__control-color: $black;
+$b-datepicker-head__control-bg-hover: $green;
+$b-datepicker-head__control-color-hover: $white;
+$b-datepicker-head__control-bg-active: darken($green, 5%);
+$b-datepicker-head__control-color-active: $white;
+$b-datepicker-head__height: 45px;
+$b-datepicker-head__offset: $b-datepicker-offset;
+$b-datepicker-head__item-size: $b-datepicker-head__height - $b-datepicker-head__offset * 2;
+$b-datepicker-item-border-radius: $base-border-radius;
+
+$b-datepicker-week-names-color: $gray;
+
+$b-datepicker-day-size: 35px;
+
+$b-datepicker-week__different-month-color: $gray;
+$b-datepicker-week__day-bg-hover: $gray-light;
+$b-datepicker-week__day-bg-active: $gray;
+$b-datepicker-week__selected-bg: $green;
+$b-datepicker-week__selected-color: $white;
+/* END datepicker */
+
+/* BEGIN hotel details page */
+$hotel-details-title-size: 1.4em;
+/* END hotel details page */
+
+/* BEGIN PeopleSelector */
+$b-people-selector-padding-vertical: $padding-base-vertical;
+$b-people-selector-padding-horizontal: 10px;
+$b-people-selector-font-size: $font-size-base;
+$b-people-selector-line-height: $line-height-computed;
+$b-people-selector-bg-color: $white;
+$b-people-selector-border-radius: $small-border-radius;
+$b-people-selector-border-color: transparent;
+$b-people-selector-border-color-focus: $green;
+$b-people-selector-dropdown__label-font-size: 13px;
+$b-people-selector-dropdown__btns-border-color: #bdbdbd;
+$b-people-selector-dropdown__btns-padding: 6px;
+$b-people-selector-dropdown__btns-border-radius: $base-border-radius;
+$b-people-selector-dropdown__btns-btn_selected-bg: $green;
+$b-people-selector-dropdown__btns-btn_selected-color: $white;
+$b-people-selector-dropdown__btns-btn-font-size: 16px;
+/* END PeopleSelector */
+
+/* BEGIN FILTERS */
+$filter-reset-color: $link-color;
+/* END FILTERS */
+
+/* BEGIN RESULT PAGES */
+$result-pages-bg: $white;
+$result-list-item-border: $gray-light;
+$result-list-item-bg: $white;
+$result-list-item-shadow: 0 0 13px rgba(0, 0, 0, .3);
+/* END RESULT PAGES */
+
+// BEGIN HotelInfo
+$HotelInfo-photo-width: 140px;
+$HotelInfo__text-width: calc(100% - #{$HotelInfo-photo-width});
+$HotelInfo-photo-width-mobile: 100px;
+$HotelInfo__text-width-mobile: calc(100% - #{$HotelInfo-photo-width-mobile});
+// END HotelInfo
+
+/* BEGIN Button */
+$Button-bg: $green;
+$Button-bg-hover: darken($Button-bg, 5%);
+$Button-color: $white;
+$Button-border-radius: 0;
+$Button-font-size: 1.2rem;
+$Button-line-height: 1.33rem;
+$Button-padding-horizontal: 1rem;
+$Button-padding-vertical: .566rem;
+/* END Button */
+
+
+/* BEGIN ButtonSecondary */
+$ButtonSecondary-bg: $color-secondary;
+$ButtonSecondary-bg-hover: darken($ButtonSecondary-bg, 5%);
+$ButtonSecondary-color: $black;
+$ButtonSecondary-link-bg: #f8f8f8;
+$ButtonSecondary-link-bg-hover: darken($ButtonSecondary-link-bg, 5%);
+$ButtonSecondary-link-color: $link-color;
+$ButtonSecondary-border-radius: 0;
+$ButtonSecondary-font-size: .93rem;
+$ButtonSecondary-line-height: 1.33rem;
+$ButtonSecondary-padding-horizontal: 1rem;
+$ButtonSecondary-padding-vertical: .566rem;
+/* END ButtonSecondary */
+
+/* BEGIN TicketAbout */
+$TicketAboutContentHead-bg: $color-blue;
+$TicketAbout-border-color: $gray-light;
+/* END TicketAbout */

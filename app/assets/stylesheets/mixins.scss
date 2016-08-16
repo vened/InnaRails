@@ -1,0 +1,15 @@
+@mixin arrowUp($size, $color) {
+    width: 0;
+    height: 0;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+}
+
+@mixin arrowDown($size, $color) {
+    width: 0;
+    height: 0;
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+}

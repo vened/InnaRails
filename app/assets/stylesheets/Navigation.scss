@@ -1,0 +1,77 @@
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
+
+.b-nav__text {
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 15px;
+    line-height: 19px;
+    color: #989898;
+    text-decoration: none;
+}
+
+.b-nav__text a {
+    color: #989898;
+}
+
+.b-nav__link {
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 15px;
+    line-height: 19px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.b-nav__link,
+.b-nav__link:active,
+.b-nav__link:visited {
+    color: #fff;
+}
+
+.b-nav__link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.b-nav__help {
+    margin: 0 0 -8px 7px;
+}
+
+.b-help {
+    position: relative;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+    line-height: 19px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #89c13a;
+            border-radius: 50%;
+    -webkit-transition: all .15s;
+    -webkit-transition: all .15s;
+       -moz-transition: all .15s;
+        -ms-transition: all .15s;
+         -o-transition: all .15s;
+            transition: all .15s;
+
+    -webkit-border-radius: 50%;
+}
+
+.b-help:hover {
+    background-color: #a1cf60;
+}
+
+.b-help__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7px;
+    height: 14px;
+    background: asset_data_url("header-help.png");
+    -webkit-transform: translate(-50%,-50%);
+       -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+         -o-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+}

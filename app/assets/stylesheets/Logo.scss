@@ -1,0 +1,12 @@
+.Logo {
+  display:        inline-block;
+  background:     asset_data_url("logo.svg") no-repeat 0 0;
+  width:          100px;
+  height:         40px;
+  vertical-align: top;
+}
+.Logo__link {
+  display: block;
+  width:   100%;
+  height:  100%;
+}
