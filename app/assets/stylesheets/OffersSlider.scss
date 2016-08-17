@@ -1,0 +1,142 @@
+.OffersSlider {
+    height:           650px;
+    background-color: #f6f6f6;
+}
+.OffersSlider__img {
+    height:   650px;
+    width:    100%;
+    //background-repeat: no-repeat;
+    z-index:  3;
+    position: absolute;
+}
+.OffersSlider__content {
+    width:    100%;
+    color:    #fff;
+    z-index:  3;
+    position: absolute;
+}
+.content__main-slogan {
+    margin:     $Header__nav-container-height + $Header__info-container-height auto 0 auto;
+    max-width:  $layout-max-width;
+    text-align: center;
+}
+.main-slogan__country-name {
+    padding-top:    80px;
+    font-size:      36px;
+    text-transform: uppercase;
+}
+.main-slogan__tittle {
+    font-size: 36px;
+}
+.main-slogan__description {
+    font-size:      18px;
+    text-transform: uppercase;
+}
+.content__slogan-title {
+    max-width:  $layout-max-width;
+    margin:     0 auto 20px;
+    padding:    0 15px;
+    text-align: center;
+    font-size:  1.2rem;
+}
+.content__slogan-container {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     center;
+}
+.content__slogan {
+    max-width: $layout-max-width;
+    margin:    140px auto auto;
+    padding:   0 15px;
+}
+.slogan__tittle {
+    margin:      0 0 5px;
+    font-size:   18px;
+    font-weight: bold;
+}
+.slogan__description {
+    font-size: 15px;
+}
+@media (max-width: 900px) {
+    .main-slogan__country-name {
+        font-size: 33px;
+    }
+    .main-slogan__tittle {
+        font-size: 31px;
+    }
+    .main-slogan__description {
+        font-size: 17px;
+    }
+    .content__slogan {
+        margin: 210px auto auto;
+    }
+    .slogan__tittle {
+        font-size: 17px;
+    }
+    .slogan__description {
+        font-size: 14px;
+    }
+}
+@media (max-width: $tablet-max-width) {
+    .OffersSlider {
+        height: 850px;
+    }
+    .OffersSlider__img {
+        height: 850px;
+    }
+    .main-slogan__country-name {
+        font-size: 27px;
+    }
+    .main-slogan__tittle {
+        font-size: 25px;
+    }
+    .main-slogan__description {
+        font-size: 13px;
+    }
+    .content__slogan {
+        flex-direction: column;
+
+        margin:         340px auto auto;
+    }
+    .slogan__tittle {
+        font-size:  22px;
+        text-align: center;
+    }
+    .slogan__description {
+        font-size:  16px;
+        text-align: center;
+    }
+}
+@media (max-width: $mobile-max-width) {
+    .OffersSlider {
+        height: 800px;
+    }
+    .OffersSlider__img {
+        height: 800px;
+    }
+    .content__main-slogan {
+        margin:     55px auto 0 auto;
+        max-width:  $layout-max-width;
+        text-align: center;
+    }
+    .main-slogan__country-name {
+        font-size: 24px;
+    }
+    .main-slogan__tittle {
+        font-size: 22px;
+    }
+    .main-slogan__description {
+        font-size: 12px;
+    }
+    .content__slogan {
+        margin: 340px auto auto;
+    }
+    .slogan__tittle {
+        font-size:  18px;
+        text-align: center;
+    }
+    .slogan__description {
+        font-size:  14px;
+        text-align: center;
+    }
+}
