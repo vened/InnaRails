@@ -6,8 +6,13 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
 gem 'mongoid', git: 'https://github.com/mongodb/mongoid.git'
 gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'devise'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+gem 'carrierwave-imageoptimizer'
+gem 'mini_magick'
 
 
 # gem 'pg', '~> 0.18'

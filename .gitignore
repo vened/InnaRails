@@ -23,5 +23,7 @@ node_modules
 # Generated js bundles
 /app/assets/webpack/*
 
+public/uploads
+
 .idea
 public/assets

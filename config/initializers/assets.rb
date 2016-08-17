@@ -19,3 +19,5 @@ Rails.application.config.assets.precompile += %w( server-bundle.js )
 Rails.application.config.assets.paths << Rails.root.join("app", "assets", "webpack")
 
 Rails.application.config.assets.paths << Rails.root.join("client/node_modules")
+
+Rails.application.config.assets.precompile += %w( ckeditor/filebrowser/images/gal_del.png )
