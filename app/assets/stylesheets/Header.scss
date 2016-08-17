@@ -1,78 +1,157 @@
 @import "variables";
-.header {
-  height: 50px;
+.b-nav__text {
+    display:         inline-block;
+    padding:         0 4px;
+    font-size:       15px;
+    line-height:     19px;
+    color:           #989898;
+    text-decoration: none;
 }
-.b-header__container {
-  position:   absolute;
-  left:       0;
-  right:      0;
-  top:        0;
-  width:      100%;
-  z-index:    200;
-  height:     50px;
-  color:      #fff;
-  background: #232323;
+.container__Header {
+    //position:   absolute;
+    //position: fixed;
+    //left:       0;
+    //right:      0;
+    //top:        0;
+    width: 100%;
+    //z-index:    200;
+    //height:     50px;
+    color: #fff;
+    //background: #232323;
 }
 .b-header__hideDown {
-  top: -50px;
+    top: -100px;
 }
 .b-header__hideUp {
-  position:   fixed;
-  top:        -50px;
-  transition: top .2s;
+    position:   fixed;
+    top:        -100px;
+    transition: top .2s;
 }
 .b-header__ScrollDown {
-  position:   fixed;
-  top:        0;
-  transition: top .2s;
+    position:   fixed;
+    top:        0;
+    transition: top .2s;
 }
 .b-header__ScrollUp {
-  position:   fixed;
-  top:        0;
-  transition: top .1s;
+    position:   fixed;
+    top:        0;
+    transition: top .1s;
 }
-.b-header {
-  display:         flex;
-  align-items:     center;
-  justify-content: space-between;
+.Header {
+    //display:         flex;
+    //align-items:     center;
+    //justify-content: space-between;
 
-  max-width:       $layout-max-width;
-  padding:         5px 15px;
-  margin:          0 auto;
-  text-align:      left;
+    //max-width:       $layout-max-width;
+    //padding:         5px 15px;
+    width:      100%;
+    margin:     0 auto;
+    text-align: left;
 }
-.b-header__nav-mobile {
-  display: none;
+.Header__nav-container {
+    height:           $Header__nav-container-height;
+    display:          block;
+    background-color: #232323;
+}
+.nav {
+    max-width:  $layout-max-width;
+    margin:     0 auto;
+    padding:    5px 15px;
+    text-align: right;
+}
+.Header__info-container {
+    height:           $Header__info-container-height;
+    display:          block;
+    background-color: rgba(0, 0, 0, .6);
+}
+.info {
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+
+    max-width:       $layout-max-width;
+    margin:          0 auto;
+    padding:         5px 15px;
+}
+.info_tel-login {
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+
+    color:           rgba(255, 255, 255, .7);
+
+    .tel {
+        display:         flex;
+        align-items:     center;
+        justify-content: space-between;
+
+        .tel__icon {
+            margin-right: 10px;
+        }
+        .tel__number-time {
+            text-align: center;
+
+            .number {
+                font-size: 0.88rem;
+            }
+            .time {
+                font-size: 0.7rem;
+                color:     rgba(134, 134, 134, .87);
+            }
+        }
+    }
+    .login {
+        font-size: .88rem;
+
+        .login__icon {
+            margin: 0 6px 0px 30px;
+        }
+        .login__btn {
+            cursor: pointer;
+        }
+    }
+}
+.Header__nav-mobile {
+    display: none;
+}
+.Header__logo {
+    display: none;
 }
 @media (max-width: 650px) {
 
 }
 @media (max-width: $mobile-max-width) {
-  .b-brand__img,
-  .b-brand__text,
-  .b-header__nav {
-    display: none;
-  }
-
-  .b-header {
-    padding: 5px 10px;
-  }
-
-  .b-header__brand {
-    width:       auto;
-    margin-left: -27px;
-  }
-
-  .b-header__nav-mobile {
-    display: block;
-    order: 2;
-  }
-
-  .b-header__logo {
-    order: 1;
-  }
-
-  .b-brand__img-mobile {
-    display: block;
-  }
+    .b-brand__img,
+    .b-brand__text,
+    .Header__nav-container,
+    .Header__info-container {
+        display: none;
+    }
+    .container__Header {
+        padding:          5px 15px;
+        background-color: #232323;
+    }
+    .Header {
+        display:         flex;
+        align-items:     center;
+        justify-content: space-between;
+    }
+    .b-header__brand {
+        width:       auto;
+        margin-left: -27px;
+    }
+    .Header__info {
+        display: none;
+    }
+    .Header__nav-mobile {
+        display: block;
+        order:   2;
+    }
+    .Header__logo {
+        display: block;
+        order:   1;
+    }
+    .b-brand__img-mobile {
+        display: block;
+    }
 }
