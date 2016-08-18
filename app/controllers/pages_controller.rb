@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout 'layouts/landing'
   def index
     @pages = Page.all
   end
