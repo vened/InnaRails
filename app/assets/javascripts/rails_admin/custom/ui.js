@@ -1,4 +1,5 @@
 //= require rails_admin/custom/ckeditor_ajax
+//= require dropzone
 
 $(document).on('ready pjax:success', function() {
     handleActiveBase();

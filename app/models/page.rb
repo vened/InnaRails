@@ -5,6 +5,8 @@ class Page
   field :text, type: String
   field :slug, type: String
 
+  embeds_many :photos
+
   rails_admin do
     list do
       field :title

@@ -10,9 +10,13 @@ gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'devise'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'carrierwave'
 gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
+
+gem 'dropzonejs-rails'
+gem 'rails_admin_multiple_upload', path: 'vendor/rails_admin_multiple_upload'
 
 
 # gem 'pg', '~> 0.18'

@@ -11,6 +11,9 @@
             <h2 class='Landing__ContentTitle'>
                 Таиланд
             </h2>
+            <%- @page.photos.each do |photo| %>
+                <%= image_tag photo.image.thumb %>
+            <%- end %>
             <div>
                 Курорт Паттайя находится в 150 км. от г. Бангкок, в 120 км. от международного аэропорта Бангкока.
                 Паттайя -
