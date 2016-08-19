@@ -6,7 +6,14 @@
   .Landing__ContentContainer
     .Landing__Content
       .LandingBreadcrumbs= render_breadcrumbs separator: ' / '
-      h2.Landing__ContentTitle= @page.location_name
+
+      .Landing__ContentHead
+        h2.Landing__ContentTitle= @page.location_name
+        -unless @page.visa.present?
+          .NoVisa
+            .NoVisa__Icon
+            .NoVisa__Text Виза не нужна
+
       .Landing__ContentTextContainer
         .Landing__ContentText
           .Landing__ContentImages#animated-thumbnials

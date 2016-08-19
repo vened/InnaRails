@@ -9,6 +9,7 @@ class Page
   field :location_text, type: String
   field :slug, type: String
   field :image, type: String
+  field :visa, type: Boolean, default: true
 
   mount_uploader :image, PhotoUploader
   embeds_many :photos
@@ -28,6 +29,7 @@ class Page
       field :slogan_2
       field :image, :carrierwave
       field :location_name
+      field :visa
       field :location_text, :ck_editor
     end
   end

@@ -59,8 +59,15 @@ body {
     padding:          20px;
     background-color: #fff;
 }
+.Landing__ContentHead {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     center;
+
+    margin:          0 0 15px;
+}
 .Landing__ContentTitle {
-    margin:      0 0 15px;
+    margin:      0;
     font-size:   22px;
     font-weight: normal;
 }
@@ -87,7 +94,7 @@ body {
     display:        block;
     overflow:       hidden;
     vertical-align: top;
-    box-shadow: 0 0 0 2px #fff;
+    box-shadow:     0 0 0 2px #fff;
 
     img {
         vertical-align: top;
@@ -113,4 +120,21 @@ body {
 .LandingBreadcrumbs {
     margin:    0 0 10px;
     font-size: .85rem;
+}
+.NoVisa {
+    display:       flex;
+
+    padding:       5px;
+    border:        1px solid $green;
+    border-radius: $base-border-radius;
+}
+.NoVisa__Icon {
+    width:            16px;
+    height:           15px;
+    margin-right:     10px;
+    background-image: asset_data_url("svg-icons/icon-visa.svg");
+}
+.NoVisa__Text {
+    font-size: .8rem;
+    color:     $green;
 }
