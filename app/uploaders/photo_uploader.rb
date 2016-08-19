@@ -17,7 +17,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_limit => [1600, 1600]
+    process :resize_to_fill => [1920, 1200]
   end
 
   # def filename

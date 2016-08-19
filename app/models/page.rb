@@ -5,7 +5,8 @@ class Page
   field :title, type: String
   field :slogan_1, type: String
   field :slogan_2, type: String
-  field :text, type: String
+  field :location_name, type: String
+  field :location_text, type: String
   field :slug, type: String
   field :image, type: String
 
@@ -26,7 +27,8 @@ class Page
       field :slogan_1
       field :slogan_2
       field :image, :carrierwave
-      field :text, :ck_editor
+      field :location_name
+      field :location_text, :ck_editor
     end
   end
 

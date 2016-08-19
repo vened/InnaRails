@@ -1,27 +1,12 @@
 .Landing
-  .Landing__Header
-    = render 'header'
-    = render 'header_img'
-  = render_breadcrumbs separator: '/'
+
+  = render 'head'
   = render 'nav'
+
   .Landing__ContentContainer
     .Landing__Content
-      h2.Landing__ContentTitle= @page.title
-      div= raw @page.text
+      .LandingBreadcrumbs= render_breadcrumbs separator: ' / '
+      h2.Landing__ContentTitle= @page.location_name
+      div= raw @page.location_text
       - @page.photos.each do |photo|
         = image_tag photo.image.thumb
-
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/
-  br/

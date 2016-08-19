@@ -1,0 +1,87 @@
+$Header-height: 670px;
+$InHeaderPlusItemColor: rgba(255, 255, 255, 0.87);
+$InHeaderContentTextShadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+.InHeader {
+    position: relative;
+    margin:   0 0 5px;
+    height:   $Header-height;
+    overflow: hidden;
+}
+.InHeaderImage {
+    position:   absolute;
+    top:        0;
+    z-index:    1;
+    width:      100%;
+    min-height: 100%;
+}
+.InHeaderContent {
+    position:         absolute;
+    left:             0;
+    right:            0;
+    top:              0;
+    bottom:           0;
+    z-index:          2;
+    color:            $white;
+    font-weight:      normal;
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.09) 53%, rgba(0, 0, 0, 0.31) 99%);
+}
+.InHeaderContent__Container {
+    display:         flex;
+    flex-direction:  column;
+    justify-content: flex-end;
+
+    width:           $layout-max-width;
+    height:          100%;
+    margin:          0 auto;
+    padding:         70px 0 0 0;
+}
+.InHeaderContent__Titles {
+    margin: 0 0 130px;
+}
+.InHeaderContent__Title {
+    margin:      0;
+    font-size:   2.4rem;
+    font-weight: normal;
+    text-align:  center;
+    text-shadow: $InHeaderContentTextShadow;
+}
+.InHeaderContent__Slogan1 {
+    margin:      0;
+    font-size:   2.4rem;
+    font-weight: normal;
+    text-align:  center;
+    text-shadow: $InHeaderContentTextShadow;
+}
+.InHeaderContent__Slogan2 {
+    margin:      0;
+    font-size:   1.2rem;
+    font-weight: normal;
+    text-align:  center;
+    text-shadow: $InHeaderContentTextShadow;
+}
+//.InHeaderContent__Plus
+.InHeaderPlus {
+    padding: 0 0 80px;
+}
+.InHeaderPlus__Title {
+    margin:     0 0 25px;
+    font-size:  1.2rem;
+    text-align: center;
+}
+.InHeaderPlus__List {
+    display:         flex;
+    justify-content: space-between;
+}
+.InHeaderPlusItem {
+
+}
+.InHeaderPlusItem__title {
+    margin:      0 0 8px;
+    font-size:   1.2rem;
+    color:       $InHeaderPlusItemColor;
+    font-weight: bold;
+}
+.InHeaderPlusItem__description {
+    font-size: 1rem;
+    color:     $InHeaderPlusItemColor;
+}
