@@ -64,6 +64,50 @@ body {
     font-size:   22px;
     font-weight: normal;
 }
+.Landing__ContentTextContainer {
+
+    //display:         flex;
+    //justify-content: space-between;
+}
+.Landing__ContentText {
+    @extend .clearfix;
+    //flex: 1;
+}
+.Landing__ContentImages {
+    @extend .clearfix;
+    float:     right;
+    //flex:        1;
+    max-width: 400px;
+    margin:    0 0 20px 40px;
+    font-size: 0;
+    //display:   flex;
+    //flex-wrap: wrap;
+}
+.Landing__ContentImage {
+    display:        block;
+    overflow:       hidden;
+    vertical-align: top;
+    box-shadow: 0 0 0 2px #fff;
+
+    img {
+        vertical-align: top;
+        max-height:     100%;
+        max-width:      100%;
+    }
+
+    &:nth-child(1n) {
+        width: 62.5%;
+        float: left;
+    }
+    &:nth-child(2n) {
+        width: 37.5%;
+        float: right;
+    }
+    &:nth-child(3n) {
+        width: 37.5%;
+        float: right;
+    }
+}
 // end Landing__Content
 
 .LandingBreadcrumbs {

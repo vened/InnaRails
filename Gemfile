@@ -40,6 +40,8 @@ gem 'uglifier', '>= 1.3.0'
 gem "react_on_rails", "~> 5"
 gem 'therubyracer', platforms: :ruby
 
+gem 'rails-assets-lightgallery.js', source: 'https://rails-assets.org'
+
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
