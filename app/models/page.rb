@@ -13,6 +13,9 @@ class Page
 
   mount_uploader :image, PhotoUploader
   embeds_many :photos
+  embeds_many :locations
+
+  accepts_nested_attributes_for :locations, :allow_destroy => true
 
   rails_admin do
     list do
@@ -20,6 +23,9 @@ class Page
     end
     edit do
       field :title
+
+      field :locations
+
       field :parent_id, :enum do
         enum do
           Page.all.map { |c| [ c.title, c.id ] }
@@ -32,6 +38,9 @@ class Page
       field :visa
       field :location_text, :ck_editor
     end
+    # configure :locations do
+    #   visible(true)
+    # end
   end
 
   def to_param
@@ -44,6 +53,12 @@ class Page
   private
   def generate_slug
     self.slug = self.title.parameterize
+    logger.debug "========"
+    logger.debug self
+    logger.debug self.locations.length
+    self.locations.each do |location|
+      location.slug = self.title.parameterize + '-is-' + location.name.parameterize
+    end
   end
 
 end

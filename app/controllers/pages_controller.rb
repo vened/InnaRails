@@ -7,10 +7,20 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find_by(slug: params[:id])
+    # @page = Page.find_by(slug: params[:id])
+    # unless @page.present?
+    @page       = Page.where({locations: {'$all' => [{'$elemMatch' => {slug: params[:id]}}]}})
+    @page       = @page[0]
+    @location = @page.locations.find_by(slug: params[:id])
+    if @location.present?
+      @page_title = @page.title + " из " + @location.name
+    else
+      @page_title = @page.title
+    end
+    # end
 
-    @children = @page.children
-    @siblings = @page.siblings
+    @children   = @page.children
+    @siblings   = @page.siblings
     if @children.present?
       @menu = @children
     else
