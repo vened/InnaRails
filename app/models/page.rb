@@ -3,7 +3,8 @@ class Page
   include Mongoid::Ancestry
   has_ancestry
   field :title, type: String
-  field :slogan, type: String
+  field :slogan_1, type: String
+  field :slogan_2, type: String
   field :text, type: String
   field :slug, type: String
   field :image, type: String
@@ -22,7 +23,8 @@ class Page
           Page.all.map { |c| [ c.title, c.id ] }
         end
       end
-      field :slogan
+      field :slogan_1
+      field :slogan_2
       field :image, :carrierwave
       field :text, :ck_editor
     end
