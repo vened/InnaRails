@@ -1,5 +1,7 @@
 class Page
   include Mongoid::Document
+  include Mongoid::Ancestry
+  has_ancestry
   field :title, type: String
   field :slogan, type: String
   field :text, type: String
@@ -13,6 +15,11 @@ class Page
     end
     edit do
       field :title
+      field :parent_id, :enum do
+        enum do
+          Page.all.map { |c| [ c.title, c.id ] }
+        end
+      end
       field :slogan
       field :text, :ck_editor
     end
