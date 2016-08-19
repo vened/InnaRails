@@ -6,7 +6,9 @@ class Page
   field :slogan, type: String
   field :text, type: String
   field :slug, type: String
+  field :image, type: String
 
+  mount_uploader :image, PhotoUploader
   embeds_many :photos
 
   rails_admin do
@@ -21,6 +23,7 @@ class Page
         end
       end
       field :slogan
+      field :image, :carrierwave
       field :text, :ck_editor
     end
   end

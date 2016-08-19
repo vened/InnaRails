@@ -8,7 +8,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   process optimize: [{quality: 80}]
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{model.id}"
+    # "uploads/#{model.class.to_s.underscore}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   version :thumb do
@@ -19,16 +20,16 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [1600, 1600]
   end
 
-  def filename
-    if original_filename
-      if model && model.page.present?
-        @name ||= model.page.title.parameterize
-      else
-        @name ||= "#{model.id}.#{file.extension}"
-      end
-      "#{@name}.#{file.extension}"
-    end
-  end
+  # def filename
+  #   if original_filename
+  #     if model && model.page.present?
+  #       @name ||= model.page.title.parameterize
+  #     else
+  #       @name ||= "#{model.id}.#{file.extension}"
+  #     end
+  #     "#{@name}.#{file.extension}"
+  #   end
+  # end
 
 
   # Include RMagick or MiniMagick support:

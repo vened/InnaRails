@@ -20,6 +20,9 @@ gem 'mini_magick'
 gem 'dropzonejs-rails'
 gem 'rails_admin_multiple_upload', path: 'vendor/rails_admin_multiple_upload'
 
+gem 'slim-rails', '~> 3.1'
+
+gem 'breadcrumbs_on_rails', github: 'weppos/breadcrumbs_on_rails'
 
 # gem 'pg', '~> 0.18'
 # Use Puma as the app server
