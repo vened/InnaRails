@@ -48,14 +48,16 @@ class Page
   end
 
   before_create :generate_slug
-  before_update :generate_slug
+  before_update :generate_slug, :start_search
+
+  def start_search
+  #   SearchJob.perform_later(self.slug)
+  #   SearchJob.set(wait: 2.second).perform_later(self.slug)
+  end
 
   private
   def generate_slug
     self.slug = self.title.parameterize
-    logger.debug "========"
-    logger.debug self
-    logger.debug self.locations.length
     self.locations.each do |location|
       location.slug = self.title.parameterize + '-is-' + location.name.parameterize
     end

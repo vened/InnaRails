@@ -27,6 +27,7 @@ gem 'breadcrumbs_on_rails', github: 'weppos/breadcrumbs_on_rails'
 # gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+gem 'sidekiq'
 
 ###### localisation ######
 gem 'rails-i18n'
