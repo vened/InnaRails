@@ -14,7 +14,7 @@ class SearchJob < ApplicationJob
     # TicketClass:0
     # http://test.inna.ru/api/v1/Packages/SearchHotels?AddFilter=true&Adult=2&ArrivalId=18820&DepartureId=6733&EndVoyageDate=2016-09-04&StartVoyageDate=2016-09-01&TicketClass=0
     # http://test.inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
-    api_url = "http://test.inna.ru/"
+    api_url = "https://inna.ru/"
 
     page   = Page.find_by(slug: slug)
 
