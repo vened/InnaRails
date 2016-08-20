@@ -3,7 +3,7 @@ class Departure
   field :name, type: String
   field :DepartureId, type: String
   field :slug, type: String
-  field :tours, type: Object
+  field :tours, type: Array
   embedded_in :page
 
 end

@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     @page       = Page.where({departures: {'$all' => [{'$elemMatch' => {slug: params[:id]}}]}})
     @page       = @page[0]
 
-    SearchJob.set(wait: 1.second).perform_later(@page.slug)
+    # SearchJob.set(wait: 1.second).perform_later(@page.slug)
 
     @location = @page.departures.find_by(slug: params[:id])
     if @location.present?
