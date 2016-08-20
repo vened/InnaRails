@@ -117,6 +117,10 @@ ru:
         title: "История для %{model_label} '%{object_label}'"
         menu: "История"
         breadcrumb: "история"
+      multiple_upload:
+        title: "Загрузка фото для страницы '%{object_label}'"
+        menu: "Загрузка фото"
+        breadcrumb: "Загрузка фото"
     form:
       cancel: "Отмена"
       basic_info: "Основное"

@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/benedikt/mongoid-tree
+  revision: d77345611b00bbc9ee75603439be9cdf9883925b
+  specs:
+    mongoid-tree (2.1.0)
+      mongoid (>= 4.0, < 7.0)
+
+GIT
   remote: git://github.com/galetahub/ckeditor.git
   revision: a431c575f1e39647a19c050b60007613ece7870e
   specs:
@@ -163,8 +170,6 @@ GEM
     mongoid-grid_fs (2.3.0)
       mime-types (>= 1.0, < 4.0)
       mongoid (>= 3.0, < 7.0)
-    mongoid-tree (2.0.1)
-      mongoid (>= 4.0, < 6.0)
     multi_json (1.12.1)
     nested_form (0.3.2)
     nio4r (1.2.1)
@@ -314,12 +319,12 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mongoid!
-  mongoid-tree
+  mongoid-tree!
   normalize-rails (~> 4.1, >= 4.1.1)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-assets-lightgallery.js!
-  rails-i18n
+  rails-i18n (~> 5.0.0)
   rails_admin (>= 1.0.0.rc)
   rails_admin_multiple_upload!
   rails_admin_rollincode (~> 1.0)

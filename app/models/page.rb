@@ -13,6 +13,7 @@ class Page
   field :slug, type: String
   field :image, type: String
   field :visa, type: Boolean, default: true
+  field :pricing, type: Boolean, default: false
 
   mount_uploader :image, PhotoUploader
   embeds_many :photos
@@ -20,31 +21,28 @@ class Page
 
   accepts_nested_attributes_for :departures, :allow_destroy => true
 
+  # validates :parent_id, :presence => false
+  validates_associated :parent, :children
+
   rails_admin do
     list do
       field :title
     end
     edit do
       field :title
-      field :ArrivalId
-
-      field :departures
-
-      field :parent_id, :enum do
-        enum do
-          Page.all.map { |c| [c.title, c.id] }
-        end
-      end
-      field :slogan_1
-      field :slogan_2
-      field :image, :carrierwave
       field :location_name
       field :visa
+      field :slogan_1
+      field :slogan_2
+      field :parent
+      field :image, :carrierwave
       field :location_text, :ck_editor
+      field :ArrivalId
+      field :pricing do
+        label 'Запустить парсинг цен'
+      end
+      field :departures
     end
-    # configure :locations do
-    #   visible(true)
-    # end
   end
 
   def to_param
@@ -55,8 +53,11 @@ class Page
   before_update :generate_slug, :start_search
 
   def start_search
+    if self.pricing.present?
+      SearchJob.set(wait: 2.second).perform_later(self.slug)
+      self.update(pricing: false)
+    end
     #   SearchJob.perform_later(self.slug)
-    #   SearchJob.set(wait: 2.second).perform_later(self.slug)
   end
 
 
@@ -90,8 +91,6 @@ class Page
 
   private
   def generate_slug
-    logger.debug '============='
-    logger.debug 'generate_slug'
     self.slug   = self.title.parameterize
     parent_page = self.parent
     if parent_page.present?
@@ -106,7 +105,7 @@ class Page
       if departure.isDefault.present?
         departure.slug = self.title.parameterize
       else
-        departure.slug = self.title.parameterize + '-is-' + departure.name.parameterize
+        departure.slug = self.title.parameterize + ' ' + departure.name.parameterize
       end
     end
   end

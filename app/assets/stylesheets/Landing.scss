@@ -72,7 +72,7 @@ body {
     font-weight: normal;
 }
 .Landing__ContentTextContainer {
-
+    margin: 0 0 30px;
     //display:         flex;
     //justify-content: space-between;
 }
@@ -138,3 +138,125 @@ body {
     font-size: .8rem;
     color:     $green;
 }
+.LandingTitleH2 {
+    position:        relative;
+    margin:          0 0 30px;
+    text-align:      center;
+    font-size:       1rem;
+    font-weight:     500;
+    white-space:     nowrap;
+
+    display:         flex;
+    justify-content: space-between;
+    align-items:     center;
+
+    &:before,
+    &:after {
+        content:          '';
+        display:          block;
+        height:           1px;
+        background-color: $gray-landing;
+
+        flex:             1;
+    }
+}
+.LandingTitleH2__inset {
+    margin: 0 8px;
+}
+//LandingTour
+.LandingTours {
+    display:         flex;
+    justify-content: space-between;
+    flex-wrap:       wrap;
+    align-items:     center;
+
+    margin:          0 -2px;
+}
+.LandingTour {
+    display:         flex;
+    justify-content: space-between;
+    align-items:     center;
+
+    width:           calc(50% - 4px);
+    margin:          2px;
+    padding:         8px;
+    border-radius:   $base-border-radius;
+    border:          1px solid $gray-landing;
+    color:           $black-landing;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration:  none;
+        background-color: $green;
+        color:            $white;
+
+        .LandingTour__right{
+            border-color: $white;
+        }
+    }
+}
+.LandingTour__title {
+    font-size:  .8rem;
+    text-align: center;
+}
+.LandingTour__data {
+    font-size:  1rem;
+    text-align: center;
+}
+.LandingTour__count {
+    font-size:  .8rem;
+    text-align: center;
+}
+.LandingTour__price {
+    font-size:   1.4rem;
+    text-align:  center;
+    font-weight: 500;
+}
+.LandingTour__pricelabel {
+    margin-right: 5px;
+    font-size:    .9rem;
+    font-weight:  400;
+}
+.LandingTour__priceUnit {
+    font-size:   1.2rem;
+    font-weight: 400;
+}
+.LandingTour__left {
+    padding: 8px;
+}
+.LandingTour__right {
+    padding: 8px 8px 8px 35px;
+    border-left: 1px solid $gray-landing;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

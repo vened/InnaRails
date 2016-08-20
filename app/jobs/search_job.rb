@@ -18,8 +18,8 @@ class SearchJob < ApplicationJob
 
     page   = Page.find_by(slug: slug)
 
-    # months = [2, 3, 4, 5, 6, 7, 8, 9]
-    months = [2, 3]
+    months = [2, 3, 4, 5, 6, 7, 8, 9]
+    # months = [2, 3]
 
     page.departures.each do |departure|
       tours = []

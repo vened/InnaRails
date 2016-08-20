@@ -25,6 +25,7 @@ module InnaRails
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
     config.i18n.default_locale = :ru
+    config.i18n.available_locales = :ru
     config.active_job.queue_adapter = :sidekiq
   end
 end

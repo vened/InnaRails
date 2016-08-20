@@ -6,7 +6,8 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
 gem 'mongoid', git: 'https://github.com/mongodb/mongoid.git'
 # gem 'mongoid-ancestry'
-gem 'mongoid-tree', :require => 'mongoid/tree'
+# gem 'mongoid-tree', :require => 'mongoid/tree'
+gem 'mongoid-tree', :git => 'git://github.com/benedikt/mongoid-tree'
 
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin_rollincode', '~> 1.0'
@@ -31,7 +32,7 @@ gem 'puma', '~> 3.0'
 gem 'sidekiq'
 
 ###### localisation ######
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.0.0'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
