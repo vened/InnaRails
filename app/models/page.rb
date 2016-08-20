@@ -9,6 +9,7 @@ class Page
   field :location_text, type: String
   field :slug, type: String
   field :image, type: String
+  field :tours, type: Object
   field :visa, type: Boolean, default: true
 
   mount_uploader :image, PhotoUploader
