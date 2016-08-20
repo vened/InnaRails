@@ -10,12 +10,12 @@ class PagesController < ApplicationController
 
     # @page = Page.find_by(slug: params[:id])
     # unless @page.present?
-    @page       = Page.where({locations: {'$all' => [{'$elemMatch' => {slug: params[:id]}}]}})
+    @page       = Page.where({departures: {'$all' => [{'$elemMatch' => {slug: params[:id]}}]}})
     @page       = @page[0]
 
-    SearchJob.set(wait: 2.second).perform_later(@page.slug)
+    SearchJob.set(wait: 1.second).perform_later(@page.slug)
 
-    @location = @page.locations.find_by(slug: params[:id])
+    @location = @page.departures.find_by(slug: params[:id])
     if @location.present?
       @page_title = @page.title + " из " + @location.name
     else

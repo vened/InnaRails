@@ -1,5 +1,5 @@
 ul
   - @pages.each do |page|
     li= link_to page.title, page_path(page)
-    -page.locations.each do |loc|
+    -page.departures.each do |loc|
       li= link_to "#{page.title} из #{loc.name}", page_path(loc.slug)
