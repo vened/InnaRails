@@ -7,38 +7,29 @@ class PagesController < ApplicationController
   end
 
   def show
-
-    # @page = Page.find_by(slug: params[:id])
-    # unless @page.present?
-    @page       = Page.where({departures: {'$all' => [{'$elemMatch' => {slug: params[:id]}}]}})
-    @page       = @page[0]
-
-    # SearchJob.set(wait: 1.second).perform_later(@page.slug)
-
-    @location = @page.departures.find_by(slug: params[:id])
-    if @location.present?
-      @page_title = @page.title + " из " + @location.name
+    @page      = Page.find_by({departures: {'$all' => [{'$elemMatch' => {slug: params[:id]}}]}})
+    @departure = @page.departures.find_by(slug: params[:id])
+    if @departure.name.present?
+      @nav        = @page.nav_data(@departure.name)
+      @page_title = @page.title + " " + @departure.name
     else
+      @nav        = @page.nav_data("")
       @page_title = @page.title
-    end
-    # end
-
-    @children   = @page.children
-    @siblings   = @page.siblings
-    if @children.present?
-      @menu = @children
-    else
-      if @siblings.present?
-        @menu= @siblings
-      end
     end
 
     @parent = @page.ancestors
     if @parent.present?
       @page.ancestors.each do |p|
-        add_breadcrumb p.title, page_path(p)
+        departure = p.departures.find_by(name: @departure.name)
+        if departure.present?
+          add_breadcrumb p.title + " " + departure.name, page_path(departure.slug)
+        else
+          add_breadcrumb p.title, page_path(p)
+        end
       end
-      add_breadcrumb @page.title
+      add_breadcrumb @page_title
     end
+
+    # SearchJob.set(wait: 1.second).perform_later(@page.slug)
   end
 end

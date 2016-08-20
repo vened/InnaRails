@@ -160,11 +160,11 @@ GEM
     minitest (5.9.0)
     mongo (2.3.0)
       bson (~> 4.1)
-    mongoid-ancestry (0.4.2)
-      mongoid
     mongoid-grid_fs (2.3.0)
       mime-types (>= 1.0, < 4.0)
       mongoid (>= 3.0, < 7.0)
+    mongoid-tree (2.0.1)
+      mongoid (>= 4.0, < 6.0)
     multi_json (1.12.1)
     nested_form (0.3.2)
     nio4r (1.2.1)
@@ -314,7 +314,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mongoid!
-  mongoid-ancestry
+  mongoid-tree
   normalize-rails (~> 4.1, >= 4.1.1)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)

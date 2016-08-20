@@ -1,7 +1,9 @@
 class Page
   include Mongoid::Document
-  include Mongoid::Ancestry
-  has_ancestry
+  include Mongoid::Tree
+  # include Mongoid::Ancestry
+  # has_ancestry
+
   field :title, type: String
   field :ArrivalId, type: String
   field :slogan_1, type: String
@@ -30,7 +32,7 @@ class Page
 
       field :parent_id, :enum do
         enum do
-          Page.all.map { |c| [ c.title, c.id ] }
+          Page.all.map { |c| [c.title, c.id] }
         end
       end
       field :slogan_1
@@ -53,15 +55,59 @@ class Page
   before_update :generate_slug, :start_search
 
   def start_search
-  #   SearchJob.perform_later(self.slug)
-  #   SearchJob.set(wait: 2.second).perform_later(self.slug)
+    #   SearchJob.perform_later(self.slug)
+    #   SearchJob.set(wait: 2.second).perform_later(self.slug)
   end
+
+
+  def nav_data name
+    Page.collection.aggregate(
+        [
+            {
+                '$match' => {
+                    parent_id:  {'$in' => [self._id]},
+                    departures: {'$all' => [{'$elemMatch' => {name: name}}]}
+                }
+            },
+            {'$unwind' => '$departures'},
+            {'$project' =>
+                 {
+                     title:         1,
+                     slug:          "$departures.slug",
+                     name:          {'$concat': ["$title", " ", "$departures.name"]},
+                     DepartureName: "$departures.name"
+                 }
+            },
+            {'$match' =>
+                 {
+                     DepartureName: {'$eq': name}
+                 }
+            }
+        ]
+    )
+  end
+
 
   private
   def generate_slug
-    self.slug = self.title.parameterize
+    logger.debug '============='
+    logger.debug 'generate_slug'
+    self.slug   = self.title.parameterize
+    parent_page = self.parent
+    if parent_page.present?
+      parent_page.departures.each do |departure|
+        self.departures.find_or_create_by({
+                                              name:        departure.name,
+                                              DepartureId: departure.DepartureId
+                                          })
+      end
+    end
     self.departures.each do |departure|
-      departure.slug = self.title.parameterize + '-is-' + departure.name.parameterize
+      if departure.isDefault.present?
+        departure.slug = self.title.parameterize
+      else
+        departure.slug = self.title.parameterize + '-is-' + departure.name.parameterize
+      end
     end
   end
 
