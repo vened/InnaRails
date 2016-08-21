@@ -184,13 +184,14 @@ body {
     border:          1px solid $gray-landing;
     color:           $black-landing;
     text-decoration: none;
+    transition:      all .1s ease-out;
 
     &:hover {
         text-decoration:  none;
         background-color: $green;
         color:            $white;
 
-        .LandingTour__right{
+        .LandingTour__right {
             border-color: $white;
         }
     }
@@ -225,7 +226,7 @@ body {
     padding: 8px;
 }
 .LandingTour__right {
-    padding: 8px 8px 8px 35px;
+    padding:     8px 8px 8px 35px;
     border-left: 1px solid $gray-landing;
 }
 
