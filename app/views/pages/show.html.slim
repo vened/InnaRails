@@ -6,51 +6,15 @@
     .Landing__Content
       .LandingBreadcrumbs= render_breadcrumbs separator: ' / '
 
-      .Landing__ContentHead
-        h2.Landing__ContentTitle= @page.location_name
-        - unless @page.visa.present?
-          .NoVisa
-            .NoVisa__Icon
-            .NoVisa__Text Виза не нужна
-
-      .Landing__ContentTextContainer
-        .Landing__ContentText
-          .Landing__ContentImages#animated-thumbnials
-            - @page.photos.first(3).each_with_index do |photo, index|
-              = link_to photo.image.large.url, class: 'Landing__ContentImage' do
-                - if index == 0
-                  = image_tag photo.image.medium
-                - else
-                  = image_tag photo.image.thumb
-          div= raw @page.location_text
-
-
-      h2.LandingTitleH2
-        .LandingTitleH2__inset
-          | Календарь цен на
-          = @page.location_name
+      = render partial: "content", locals: { content: @page}
 
       -if @departure.tours.present?
-        .LandingTours
-          - @departure.tours.each do |tour|
-            = link_to tour[:SearchUrl], target: '_blank', class: 'LandingTour' do
-              .LandingTour__left
-                .LandingTour__title Авиа + Отель
-                .LandingTour__data
-                  - month_1 = l tour[:StartVoyageDate], :format => :custom_month
-                  - month_2 = l tour[:EndVoyageDate], :format => :custom_month
-                  - if month_1 == month_2
-                    = l tour[:StartVoyageDate], :format => :custom_short
-                    | -
-                    = l tour[:EndVoyageDate], :format => :custom
-                  - else
-                    = l tour[:StartVoyageDate], :format => :custom
-                    | -
-                    = l tour[:EndVoyageDate], :format => :custom
-              .LandingTour__right
-                .LandingTour__count На двоих
-                .LandingTour__price
-                  span.LandingTour__pricelabel от
-                  span.LandingTour__priceCurrency= number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "")
-                  span.LandingTour__priceUnit руб.
+        = render partial: "calendar", locals: { departure_name: @page.location_name, departure: @departure }
 
+    -@childrens.each do |child|
+      -departure_child = child.departures.find_by(name: @departure.name)
+      -if departure_child.present?
+        .Landing__Content
+          = render partial: "content", locals: { content: child}
+          - if @departure.tours.present?
+            = render partial: "calendar", locals: {departure_name: child.location_name, departure: departure_child}

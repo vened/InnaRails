@@ -17,6 +17,8 @@ class PagesController < ApplicationController
       @page_title = @page.title
     end
 
+    @childrens = @page.children
+
     @parent = @page.ancestors
     if @parent.present?
       @page.ancestors.each do |p|
