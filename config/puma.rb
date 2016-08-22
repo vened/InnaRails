@@ -1,7 +1,7 @@
 #!/usr/bin/env puma
 
 directory '/home/deploy/www/InnaRails'
-rackup "/home/deploy/www/InnaRailsconfig.ru"
+rackup "/home/deploy/www/InnaRails/config.ru"
 environment 'production'
 
 pidfile "/home/deploy/www/InnaRailstmp/pids/puma.pid"
