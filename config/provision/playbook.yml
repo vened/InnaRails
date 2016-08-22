@@ -1,0 +1,18 @@
+# ssh -p 2210 deploy@5.200.60.73
+# ansible-playbook -i hosts playbook.yml
+---
+- hosts: webservers #Указываем группу хостов
+  remote_user: deploy #пользователь под которым ansible будет логиниться
+
+  vars_files:
+    - vars.yml #Файл, содержащий переменные которые нам потребуются, например расположения директорий
+
+  roles: # Блок ролей, у нас пока одна роль 
+#    - user
+#    - webserver
+    - ruby
+    - { role: rvm_io.rvm1-ruby, tags: ruby, become: yes }
+#    - { role: ansible-mongodb }
+#    - { role: ansible-role-java }
+#    - { role: ansible-role-elasticsearch }
+#    - mongodb

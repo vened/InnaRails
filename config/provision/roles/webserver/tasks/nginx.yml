@@ -1,0 +1,21 @@
+---
+  - name: 'nginx | check config'
+    command: 'test -f /home/deploy/nginx/sites/{{ name }}.conf'
+    register: 'nginx_config_copied'
+    ignore_errors: yes
+
+#  - name: 'nginx | createdir'
+#    shell: 'rm /etc/nginx/sites-enabled/default; mkdir -p etc/nginx/sites-enabled/'
+#    when: 'nginx_config_copied|failed'
+
+  - name: 'nginx | remove current config'
+    shell: 'rm -f /home/deploy/nginx/sites/{{ name }}.conf'
+#    when: 'nginx_config_copied|failed'
+
+  - name: 'nginx | copy config'
+    template: 'src=nginx.conf.j2 dest=/home/deploy/nginx/sites/{{ name }}.conf'
+#    when: 'nginx_config_copied|failed'
+
+  - name: 'nginx | reloaded'
+    service: name=nginx state=reloaded
+#    when: 'nginx_config_copied|failed'

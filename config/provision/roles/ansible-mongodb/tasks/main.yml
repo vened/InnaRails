@@ -1,0 +1,28 @@
+---
+# tasks file for mongodb
+
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_distribution }}.yml"
+  tags: mongodb
+
+- include: CentOS.yml
+  when: ansible_distribution == "CentOS"
+  tags: mongodb
+
+- include: Ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: mongodb
+
+- name: Create MongoDB configuration file
+  template: >
+    src=mongod.conf.j2
+    dest=/etc/mongod.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: restart mongodb
+  tags: mongodb
+
+- name: Ensure MongoDB service is started and enabled on boot
+  service: name={{ mongodb_service_name }} state=started enabled=yes
+  tags: mongodb

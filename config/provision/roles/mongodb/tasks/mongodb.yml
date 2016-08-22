@@ -1,0 +1,36 @@
+--- 
+
+- name: Install MongoDB
+  action: apt pkg=mongodb state=installed
+- name: Copy MongoDB configuration
+  copy: src=./mongodb.conf dest=/etc/mongodb.conf
+        owner=root group=root mode=0644
+
+- name: Создание {{ mongodb_dir }}
+  file: path={{ mongodb_dir }} owner=root group=root state=directory
+
+- name: restart mongodb
+  service: name=mongodb state=restarted
+
+#- name: Install mongodb dependencies
+#  action: 'apt pkg={{ item }}'
+#  with_items:
+#    - 'mongodb'
+
+#- name: Add mongodb repo key
+#  command: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+#
+#- name: Create a list file for MongoDB
+#  command: echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+#
+#- name: Reload local package database
+#  command: sudo apt-get update
+
+
+#- name: Install the latest stable version of MongoDB
+#  command: sudo apt-get install mongodb-org
+
+#- name: MongoDB start
+#  command: sudo service mongod start
+
+

@@ -1,0 +1,12 @@
+production:
+  sessions:
+    default:
+      database: santemax_production
+      hosts:
+        - 127.0.0.1:27017
+      options:
+        read: primary
+        max_retries: 1
+        retry_interval: 0
+  options:
+    raise_not_found_error: false
