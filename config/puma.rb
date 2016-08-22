@@ -4,14 +4,14 @@ directory '/home/deploy/www/InnaRails'
 rackup "/home/deploy/www/InnaRails/config.ru"
 environment 'production'
 
-pidfile "/home/deploy/www/InnaRailstmp/pids/puma.pid"
-state_path "/home/deploy/www/InnaRailstmp/pids/puma.state"
+pidfile "/home/deploy/www/InnaRails/tmp/puma.pid"
+state_path "/home/deploy/www/InnaRails/tmp/puma.state"
 stdout_redirect '/home/deploy/www/InnaRails/log/puma_access.log', '/home/deploy/www/InnaRails/log/puma_error.log', true
 
 
 threads 0,16
 
-bind 'unix:///home/deploy/www/InnaRails/tmp/sockets/puma.sock'
+bind 'unix:///home/deploy/www/InnaRails/tmp/puma.sock'
 workers 0
 
 
