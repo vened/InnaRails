@@ -12,8 +12,8 @@
 #    - webserver
 #    - ruby
 #    - { role: rvm_io.rvm1-ruby }
-    - { role: ansible-mongodb }
-#    - { role: kbrebanov.mongodb }
+#    - { role: ansible-mongodb }
+    - { role: kbrebanov.mongodb }
 #    - { role: ansible-role-java }
 #    - { role: ansible-role-elasticsearch }
 #    - mongodb

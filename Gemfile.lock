@@ -34,7 +34,7 @@ GIT
       mongo (~> 2.2)
 
 PATH
-  remote: vendor/rails_admin_multiple_upload
+  remote: vendor/admin_multiple_upload
   specs:
     rails_admin_multiple_upload (0.0.1)
       rails (~> 5.0.0.1)
