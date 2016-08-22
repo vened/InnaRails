@@ -11,7 +11,7 @@
 #    - user
 #    - webserver
     - ruby
-    - { role: rvm_io.rvm1-ruby, tags: ruby, become: yes }
+#    - { role: rvm_io.rvm1-ruby, tags: ruby, become: yes }
 #    - { role: ansible-mongodb }
 #    - { role: ansible-role-java }
 #    - { role: ansible-role-elasticsearch }

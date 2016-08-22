@@ -60,12 +60,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development do
-  gem 'capistrano', '~> 3.1'
-  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano'
+  gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
-  gem 'sshkit'
+  gem 'sshkit', '~> 1.11', '>= 1.11.2'
+  # gem 'sshkit'
 end
 
 

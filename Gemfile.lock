@@ -195,7 +195,7 @@ GEM
     nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.9.2)
+    net-ssh (3.2.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -299,7 +299,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.10.0)
+    sshkit (1.11.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     temple (0.7.7)
@@ -333,9 +333,9 @@ PLATFORMS
 DEPENDENCIES
   breadcrumbs_on_rails!
   byebug
-  capistrano (~> 3.1)
+  capistrano
   capistrano-bundler
-  capistrano-rails (~> 1.1)
+  capistrano-rails
   capistrano-rvm
   capistrano3-puma
   carrierwave
@@ -367,7 +367,7 @@ DEPENDENCIES
   slim-rails (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sshkit
+  sshkit (~> 1.11, >= 1.11.2)
   therubyracer
   turbolinks (~> 5)
   tzinfo-data

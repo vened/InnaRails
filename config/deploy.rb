@@ -3,16 +3,28 @@ lock '3.5.0'
 
 set :user, 'deploy'
 set :use_sudo, true
+
+set :pty, true
+set :format, :pretty
+
 set :application, 'InnaRails'
-set :repo_url, 'git@github.com:vened/InnaRails.git'
+set :repo_url, 'https://github.com/vened/InnaRails.git'
 set :branch, 'master'
 set :deploy_to, '/home/deploy/www/InnaRails'
 set :shared_path, '/home/deploy/www/InnaRails/shared'
 set :log_level, :info
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads}
-set :rvm_type, :user # Defaults to: :auto
+
+# set :rvm_type, :user                     # Defaults to: :auto
+# set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
+# set :rvm_custom_path, '~/.rvm'  # only needed if not detected
+
+
+# set :rvm_type, :user # Defaults to: :auto
+set :rvm_type, :system
 set :rvm_ruby_version, '2.3.1' # Defaults to: 'default'
-set :rvm_custom_path, '/usr/local/rvm' # only needed if not detected
+# set :rvm_custom_path, '/usr/local/rvm' # only needed if not detected
+set :rvm_custom_path, '/home/deploy/.rvm'  # only needed if not detected
 set :rvm_roles, :all
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }

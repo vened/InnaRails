@@ -9,8 +9,11 @@
 
 role :app, %w{deploy@5.200.60.73}
 role :web, %w{deploy@5.200.60.73}
-role :db,  %w{deploy@5.200.60.73}
-server '5.200.60.73', user: 'deploy', roles: %w{web app}, port: 2210
+role :db, %w{deploy@5.200.60.73}
+server '5.200.60.73', user: 'deploy', roles: %w{web app},
+       ssh_options:         {
+           port: 2210
+       }
 
 
 # role-based syntax
@@ -26,7 +29,6 @@ server '5.200.60.73', user: 'deploy', roles: %w{web app}, port: 2210
 # role :db,  %w{deploy@example.com}
 
 
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -34,7 +36,6 @@ server '5.200.60.73', user: 'deploy', roles: %w{web app}, port: 2210
 # For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
-
 
 
 # Custom SSH Options
