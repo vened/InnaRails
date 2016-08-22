@@ -20,7 +20,7 @@ preload_app!
 
 on_restart do
   puts 'Refreshing Gemfile'
-  ENV["BUNDLE_GEMFILE"] = "/home/deploy/www/InnaRails/current/Gemfile"
+  ENV["BUNDLE_GEMFILE"] = "/home/deploy/www/InnaRails/Gemfile"
 end
 
 
