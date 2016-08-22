@@ -10,7 +10,12 @@
 role :app, %w{deploy@5.200.60.73}
 role :web, %w{deploy@5.200.60.73}
 role :db, %w{deploy@5.200.60.73}
-server '5.200.60.73', roles: %w{web app}, user: 'deploy', port: 2210
+server '5.200.60.73', roles: %w{web app}
+
+set :ssh_options, {
+    user: 'deploy',
+    port: 2210
+}
 # ssh_options:         {
 #     port: 2210
 # }
