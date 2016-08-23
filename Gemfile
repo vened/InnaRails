@@ -66,6 +66,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
   gem 'sshkit', '~> 1.11', '>= 1.11.2'
+  gem 'capistrano-inspeqtor', require: false
   # gem 'sshkit'
 end
 

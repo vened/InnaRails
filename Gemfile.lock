@@ -98,6 +98,8 @@ GEM
       capistrano (~> 3.1)
       sshkit (~> 1.2)
     capistrano-harrow (0.5.3)
+    capistrano-inspeqtor (0.1.0)
+      capistrano (~> 3.0)
     capistrano-rails (1.1.3)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -334,6 +336,7 @@ DEPENDENCIES
   breadcrumbs_on_rails!
   byebug
   capistrano-bundler
+  capistrano-inspeqtor
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
