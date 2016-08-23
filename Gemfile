@@ -30,6 +30,7 @@ gem 'breadcrumbs_on_rails', github: 'weppos/breadcrumbs_on_rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'sidekiq'
+gem 'listen'
 
 ###### localisation ######
 gem 'rails-i18n', '~> 5.0.0'
