@@ -8,7 +8,6 @@ server {
   client_max_body_size 1G;
   keepalive_timeout 10;
   server_name pages.inna.ru www.pages.inna.ru;
-  keepalive_timeout 10;
   root {{ deploy_dir }}/current/public;
 
   #редиректим

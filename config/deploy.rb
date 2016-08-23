@@ -46,18 +46,22 @@ namespace :sidekiq do
   task :quiet do
     on roles(:app) do
       # puts capture("pgrep -f 'workers' | xargs kill -USR1")
+      execute :sudo, :stop, :workers
+      execute :sudo, :start, :workers
     end
   end
   task :restart do
     on roles(:app) do
-      execute :sudo, :restart, :workers
+      execute :sudo, :stop, :workers
+      execute :sudo, :start, :workers
+      # execute :sudo, :restart, :workers
     end
   end
 end
 
-after 'deploy:starting', 'sidekiq:quiet'
-after 'deploy:reverted', 'sidekiq:restart'
-after 'deploy:published', 'sidekiq:restart'
+# after 'deploy:starting', 'sidekiq:quiet'
+# after 'deploy:reverted', 'sidekiq:restart'
+# after 'deploy:published', 'sidekiq:restart'
 
 # If you wish to use Inspeqtor to monitor Sidekiq
 # https://github.com/mperham/inspeqtor/wiki/Deployments

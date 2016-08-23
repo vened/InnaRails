@@ -9,9 +9,9 @@
 
   roles: # Блок ролей, у нас пока одна роль 
 #    - user
-#    - webserver
+    - webserver
 #    - ruby
-    - { role: rvm_io.rvm1-ruby }
+#    - { role: rvm_io.rvm1-ruby }
 #    - { role: ansible-mongodb }
 #    - { role: kbrebanov.mongodb }
 #    - { role: ansible-role-java }
