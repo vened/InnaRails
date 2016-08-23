@@ -17,59 +17,63 @@ class SearchJob < ApplicationJob
     # http://test.inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
     api_url = "https://inna.ru/"
 
-    page   = Page.find_by(slug: slug)
+    page = Page.find_by(slug: slug)
 
     months = [2]
     # months = [2, 3]
 
-    page.departures.each do |departure|
-      tours = []
-      months.each do |month|
-        startVoyageDate = Date.current.weeks_since(month)
-        endVoyageDate   = Date.current.weeks_since(month + 1)
-        url_array       = [
-            api_url,
-            "api/v1/Packages/SearchHotels?",
-            "AddFilter=true&",
-            "Adult=2&",
-            "ArrivalId=#{page.ArrivalId}&",
-            "DepartureId=#{departure.DepartureId}&",
-            "StartVoyageDate=#{startVoyageDate.strftime('%F')}&",
-            "EndVoyageDate=#{endVoyageDate.strftime('%F')}&",
-            "TicketClass=0"
-        ]
+    if page.present?
 
-        res_data = JSON.parse(open(url_array.join).read)
-
-        if res_data.present?
-
-          searchUrl = [
+      page.departures.each do |departure|
+        tours = []
+        months.each do |month|
+          startVoyageDate = Date.current.weeks_since(month)
+          endVoyageDate   = Date.current.weeks_since(month + 1)
+          url_array       = [
               api_url,
-              "#/packages/search/",
-              departure.DepartureId,
-              "-",
-              page.ArrivalId,
-              "-",
-              startVoyageDate.strftime('%d.%m.%Y'),
-              "-",
-              endVoyageDate.strftime('%d.%m.%Y'),
-              "-0-2-"
-          ].join
+              "api/v1/Packages/SearchHotels?",
+              "AddFilter=true&",
+              "Adult=2&",
+              "ArrivalId=#{page.ArrivalId}&",
+              "DepartureId=#{departure.DepartureId}&",
+              "StartVoyageDate=#{startVoyageDate.strftime('%F')}&",
+              "EndVoyageDate=#{endVoyageDate.strftime('%F')}&",
+              "TicketClass=0"
+          ]
 
-          tour = {
-              StartVoyageDate: startVoyageDate,
-              EndVoyageDate:   endVoyageDate,
-              Price:           res_data['RecommendedPair']['Hotel']['PackagePrice'],
-              SearchUrl:       searchUrl
-              # Stars:           res_data[:RecommendedPair][:Hotel][:Stars]
-          }
-          p tour
-          tours.push(tour)
+          res_data = JSON.parse(open(url_array.join).read)
+
+          if res_data.present?
+
+            searchUrl = [
+                api_url,
+                "#/packages/search/",
+                departure.DepartureId,
+                "-",
+                page.ArrivalId,
+                "-",
+                startVoyageDate.strftime('%d.%m.%Y'),
+                "-",
+                endVoyageDate.strftime('%d.%m.%Y'),
+                "-0-2-"
+            ].join
+
+            tour = {
+                StartVoyageDate: startVoyageDate,
+                EndVoyageDate:   endVoyageDate,
+                Price:           res_data['RecommendedPair']['Hotel']['PackagePrice'],
+                SearchUrl:       searchUrl
+                # Stars:           res_data[:RecommendedPair][:Hotel][:Stars]
+            }
+            p tour
+            tours.push(tour)
+          end
+
         end
+        departure.update(tours: [])
+        departure.update(tours: tours)
 
       end
-      departure.update(tours: [])
-      departure.update(tours: tours)
     end
 
     # page.update(slogan_1: DateTime.current)
