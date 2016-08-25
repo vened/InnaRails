@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   layout 'layouts/landing'
 
   def index
@@ -34,4 +35,14 @@ class PagesController < ApplicationController
 
     # SearchJob.set(wait: 1.second).perform_later(@page.slug)
   end
+
+  def update
+    p "===="
+    p params
+    p params[:locations]
+    @pages = Page.all
+
+    render :json => @pages
+  end
+
 end
