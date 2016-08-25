@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
 
-  post '/updateTours' => 'pages#update'
+  post '/pages/updateTours' => 'pages#update'
   resources :pages, only: [:index, :show]
 
   get 'hello_world', to: 'hello_world#index'
