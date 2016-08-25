@@ -5,7 +5,7 @@
 // require_tree .
 
 document.addEventListener("turbolinks:load", function () {
-    lightGallery(document.getElementById('animated-thumbnials'), {
+    lightGallery(document.querySelector('.Landing__ContentImages'), {
         thumbnail         : true,
         animateThumb      : true,
         showThumbByDefault: true
