@@ -83,4 +83,37 @@
       }
     ]
   }
-]
+//]
+
+{
+  "ArrivalList": [
+    {
+      "ArrivalId": 680,
+      "RawName": "Some RawName",
+      "departures": [
+        {
+          "DepartureId": 6733,
+          "RawName": "Another RawName",
+          "tours": [
+            {
+              "StartVoyageDate": "2016-09-06T00:00:00.000Z",
+              "EndVoyageDate": "2016-09-13T00:00:00.000Z",
+              "Price": 100,
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [
+                  2,
+                  4,
+                  5
+                ],
+                "Since": "2016-09-06T00:00:00.000Z",
+                "Till": "2016-09-06T00:00:00.000Z",
+                "TicketClass": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

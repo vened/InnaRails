@@ -38,18 +38,46 @@ class PagesController < ApplicationController
 
   def update
     # locations = ActiveSupport::JSON.decode(params[:locations])
+
     locations = JSON.parse params[:locations]
+    p locations
+    p "==="
     pages = []
-    locations.each do |location|
+    locations["ArrivalList"].each do |location|
       page = Page.find_or_create_by(ArrivalId: location["ArrivalId"], RawName: location["RawName"])
+
       location["departures"].each do |departure|
         departure["name"] = departure["RawName"]
-        page.departures.find_or_create_by(departure)
+
+        dep = page.departures.find_or_create_by({
+                                              name:        departure["RawName"],
+                                              RawName:     departure["RawName"],
+                                              DepartureId: departure["DepartureId"]
+                                          })
+        tours = []
+        departure["tours"].each do |tour|
+          tour = {
+              StartVoyageDate: tour["StartVoyageDate"],
+              EndVoyageDate:   tour["EndVoyageDate"],
+              Price:           tour["Price"],
+              Adult:           tour["SearchData"]["Adult"],
+              Since:           tour["SearchData"]["Since"],
+              Till:            tour["SearchData"]["Till"],
+              TicketClass:     tour["SearchData"]["TicketClass"],
+              ChildAges:       tour["SearchData"]["ChildAges"]
+          }
+          p tour
+          tours.push(tour)
+        end
+
+        dep.update(tours: [])
+        dep.update(tours: tours)
+
       end
       pages << page
     end
 
-    render json: pages, status: :ok
+    render json: {}, status: :ok
   end
 
 end
