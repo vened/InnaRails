@@ -56,10 +56,6 @@ class PagesController < ApplicationController
                                           })
         tours = []
         departure["tours"].each do |tour|
-          p "===="
-          p tour["StartVoyageDate"]
-          p DateTime.parse(tour["StartVoyageDate"])
-          p DateTime.parse(tour["StartVoyageDate"])
           tour = {
               StartVoyageDate: DateTime.parse(tour["StartVoyageDate"]),
               EndVoyageDate:   DateTime.parse(tour["EndVoyageDate"]),
