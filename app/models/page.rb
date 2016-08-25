@@ -5,6 +5,7 @@ class Page
   # has_ancestry
 
   field :title, type: String
+  field :RawName, type: String
   field :ArrivalId, type: String
   field :slogan_1, type: String
   field :slogan_2, type: String
@@ -53,11 +54,11 @@ class Page
   before_update :generate_slug, :start_search
 
   def start_search
-    if self.pricing.present?
-      SearchJob.set(wait: 2.second).perform_later(self.slug)
-      self.update(pricing: false)
-    end
-    #   SearchJob.perform_later(self.slug)
+    # if self.pricing.present?
+    #   SearchJob.set(wait: 2.second).perform_later(self.slug)
+    #   self.update(pricing: false)
+    # end
+    # SearchJob.perform_later(self.slug)
   end
 
 
@@ -91,6 +92,10 @@ class Page
 
   private
   def generate_slug
+    p "========"
+    unless self.title
+      self.title = self.RawName
+    end
     self.slug   = self.title.parameterize
     parent_page = self.parent
     if parent_page.present?
@@ -102,10 +107,13 @@ class Page
       end
     end
     self.departures.each do |departure|
+      if departure.name.blank?
+        departure.name =  departure.RawName
+      end
       if departure.isDefault.present?
         departure.slug = self.title.parameterize
       else
-        departure.slug = self.title.parameterize + ' ' + departure.name.parameterize
+        departure.slug = self.title.parameterize + ' ' + departure.RawName.parameterize
       end
     end
   end

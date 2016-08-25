@@ -37,12 +37,19 @@ class PagesController < ApplicationController
   end
 
   def update
-    p "===="
-    p params
-    p params[:locations]
-    @pages = Page.all
+    # locations = ActiveSupport::JSON.decode(params[:locations])
+    locations = JSON.parse params[:locations]
+    pages = []
+    locations.each do |location|
+      page = Page.find_or_create_by(ArrivalId: location["ArrivalId"], RawName: location["RawName"])
+      location["departures"].each do |departure|
+        departure["name"] = departure["RawName"]
+        page.departures.find_or_create_by(departure)
+      end
+      pages << page
+    end
 
-    render :json => @pages
+    render json: pages, status: :ok
   end
 
 end

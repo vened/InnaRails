@@ -1,138 +1,86 @@
 [
   {
-    "_id": {
-      "$oid": "57b6dd39050df4b353888820"
-    },
-    "ancestry": null,
-    "image": {
-      "url": "/uploads/page/image/57b6dd39050df4b353888820/stock-photo-wat-chalong-is-the-most-important-temple-of-phuket-191006012.jpg",
-      "thumb": {
-        "url": "/uploads/page/image/57b6dd39050df4b353888820/thumb_stock-photo-wat-chalong-is-the-most-important-temple-of-phuket-191006012.jpg"
+    "ArrivalId": "6803",
+    "RawName": "Калуга",
+    "departures": [
+      {
+        "DepartureId": "6733",
+        "RawName": "Москва",
+        "tours": [
+          {
+            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
+            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
+            "TicketClass": 0,
+            "Adult": 2,
+            "Children": null,
+            "Price": 73389.0
+          },
+          {
+            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
+            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
+            "TicketClass": 0,
+            "Adult": 2,
+            "Children": null,
+            "Price": 73389.0
+          }
+        ]
       },
-      "large": {
-        "url": "/uploads/page/image/57b6dd39050df4b353888820/large_stock-photo-wat-chalong-is-the-most-important-temple-of-phuket-191006012.jpg"
+      {
+        "DepartureId": "3005",
+        "RawName": "Санкт-Петербург",
+        "tours": [
+          {
+            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
+            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
+            "TicketClass": 0,
+            "Adult": 2,
+            "Children": null,
+            "Price": 7338.0
+          }
+        ]
       }
-    },
-    "location_name": "3.1.1 Название страны",
-    "location_text": "\u003cp\u003e​​​​​​3.1.2\u0026nbsp;\u003cfont size=\"2\"\u003eСтатья\u003c/font\u003e\u003c/p\u003e\r\n",
-    "photos": [
-      {
-        "_id": {
-          "$oid": "57b6df19050df4b3ef61bf99"
-        },
-        "image": {
-          "url": "/uploads/photo/image/57b6df19050df4b3ef61bf99/stock-photo-promthep-cape-best-phuket-view-point-thailand-233988208.jpg",
-          "thumb": {
-            "url": "/uploads/photo/image/57b6df19050df4b3ef61bf99/thumb_stock-photo-promthep-cape-best-phuket-view-point-thailand-233988208.jpg"
-          },
-          "large": {
-            "url": "/uploads/photo/image/57b6df19050df4b3ef61bf99/large_stock-photo-promthep-cape-best-phuket-view-point-thailand-233988208.jpg"
-          }
-        }
-      },
-      {
-        "_id": {
-          "$oid": "57b6df1a050df4b3ef61bf9a"
-        },
-        "image": {
-          "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9a/stock-photo-view-point-at-similan-island-warm-and-clear-azure-ocean-waters-phuket-thailand-126384209.jpg",
-          "thumb": {
-            "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9a/thumb_stock-photo-view-point-at-similan-island-warm-and-clear-azure-ocean-waters-phuket-thailand-126384209.jpg"
-          },
-          "large": {
-            "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9a/large_stock-photo-view-point-at-similan-island-warm-and-clear-azure-ocean-waters-phuket-thailand-126384209.jpg"
-          }
-        }
-      },
-      {
-        "_id": {
-          "$oid": "57b6df1a050df4b3ef61bf9b"
-        },
-        "image": {
-          "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9b/stock-photo-wat-chalong-is-the-most-important-temple-of-phuket-191006012.jpg",
-          "thumb": {
-            "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9b/thumb_stock-photo-wat-chalong-is-the-most-important-temple-of-phuket-191006012.jpg"
-          },
-          "large": {
-            "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9b/large_stock-photo-wat-chalong-is-the-most-important-temple-of-phuket-191006012.jpg"
-          }
-        }
-      },
-      {
-        "_id": {
-          "$oid": "57b6df1a050df4b3ef61bf9c"
-        },
-        "image": {
-          "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9c/stock-photo-karon-view-point-phuket-thailand-397293088.jpg",
-          "thumb": {
-            "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9c/thumb_stock-photo-karon-view-point-phuket-thailand-397293088.jpg"
-          },
-          "large": {
-            "url": "/uploads/photo/image/57b6df1a050df4b3ef61bf9c/large_stock-photo-karon-view-point-phuket-thailand-397293088.jpg"
-          }
-        }
-      },
-      {
-        "_id": {
-          "$oid": "57b6df1b050df4b3ef61bf9d"
-        },
-        "image": {
-          "url": "/uploads/photo/image/57b6df1b050df4b3ef61bf9d/stock-photo-thai-church-of-karon-temple-at-phuket-province-in-thailand-256539760.jpg",
-          "thumb": {
-            "url": "/uploads/photo/image/57b6df1b050df4b3ef61bf9d/thumb_stock-photo-thai-church-of-karon-temple-at-phuket-province-in-thailand-256539760.jpg"
-          },
-          "large": {
-            "url": "/uploads/photo/image/57b6df1b050df4b3ef61bf9d/large_stock-photo-thai-church-of-karon-temple-at-phuket-province-in-thailand-256539760.jpg"
-          }
-        }
-      }
-    ],
-    "slogan_1": "1.3 Заголовок 2",
-    "slogan_2": "1.4 Заголовок 3",
-    "slug": "1-2-zagolovok-1",
-    "text": "\u003cp\u003e\u003cfont size=\"2\"\u003eОписание страны\u003c/font\u003e\u003c/p\u003e\r\n",
-    "title": "1.2 Заголовок 1"
+    ]
   },
   {
-    "_id": {
-      "$oid": "57b6debe050df4b3ef61bf97"
-    },
-    "ancestry": "57b6dd39050df4b353888820",
-    "image": {
-      "url": "/uploads/page/image/57b6debe050df4b3ef61bf97/stock-photo-thai-church-of-karon-temple-at-phuket-province-in-thailand-256539760.jpg",
-      "thumb": {
-        "url": "/uploads/page/image/57b6debe050df4b3ef61bf97/thumb_stock-photo-thai-church-of-karon-temple-at-phuket-province-in-thailand-256539760.jpg"
+    "ArrivalId": "5859",
+    "RawName": "Пенза",
+    "departures": [
+      {
+        "DepartureId": "6733",
+        "RawName": "Москва",
+        "tours": [
+          {
+            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
+            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
+            "TicketClass": 0,
+            "Adult": 2,
+            "Children": null,
+            "Price": 73389.0
+          },
+          {
+            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
+            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
+            "TicketClass": 0,
+            "Adult": 2,
+            "Children": null,
+            "Price": 73389.0
+          }
+        ]
       },
-      "large": {
-        "url": "/uploads/page/image/57b6debe050df4b3ef61bf97/large_stock-photo-thai-church-of-karon-temple-at-phuket-province-in-thailand-256539760.jpg"
+      {
+        "DepartureId": "3005",
+        "RawName": "Санкт-Петербург",
+        "tours": [
+          {
+            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
+            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
+            "TicketClass": 0,
+            "Adult": 2,
+            "Children": null,
+            "Price": 7338.0
+          }
+        ]
       }
-    },
-    "location_name": "Location name",
-    "location_text": "\u003cp\u003e\u0026nbsp;\u003c/p\u003e\r\n\r\n\u003cp\u003e\u003clabel for=\"page_location_text\"\u003eLocation text\u003c/label\u003e\u003c/p\u003e\r\n",
-    "slogan_1": "слоган -1",
-    "slogan_2": "слоган -2",
-    "slug": "1-2-zagolovok-2",
-    "title": "1.2 ЗАГОЛОВОК 2"
-  },
-  {
-    "_id": {
-      "$oid": "57b6def3050df4b3ef61bf98"
-    },
-    "ancestry": "57b6dd39050df4b353888820/57b6debe050df4b3ef61bf97",
-    "image": {
-      "url": "/uploads/page/image/57b6def3050df4b3ef61bf98/stock-photo--buddha-statue-at-wat-mahathat-in-sukhothai-historical-park-thailand-169812029.jpg",
-      "thumb": {
-        "url": "/uploads/page/image/57b6def3050df4b3ef61bf98/thumb_stock-photo--buddha-statue-at-wat-mahathat-in-sukhothai-historical-park-thailand-169812029.jpg"
-      },
-      "large": {
-        "url": "/uploads/page/image/57b6def3050df4b3ef61bf98/large_stock-photo--buddha-statue-at-wat-mahathat-in-sukhothai-historical-park-thailand-169812029.jpg"
-      }
-    },
-    "location_name": "название локации",
-    "location_text": "\u003cp\u003eназвание локации\u003c/p\u003e\r\n",
-    "slogan_1": "слоган 1",
-    "slogan_2": "слоган 2",
-    "slug": "nazvanie-lokatsii-3",
-    "title": "Название локации 3"
+    ]
   }
 ]
