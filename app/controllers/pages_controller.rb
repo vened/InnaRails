@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     @parent = @page.ancestors
     if @parent.present?
       @page.ancestors.each do |p|
-        departure = p.departures.find_by(name: @departure.name)
+        departure = p.departures.find_by(DepartureId: @departure.DepartureId)
         if departure.present?
           add_breadcrumb p.title + " " + departure.name, page_path(departure.slug)
         else

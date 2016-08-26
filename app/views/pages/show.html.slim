@@ -19,10 +19,11 @@
       -if @departure.tours.present?
         = render partial: "calendar", locals: { departure_name: @page.location_name, departure: @departure }
 
+
     -@childrens.each do |child|
-      -departure_child = child.departures.find_by(name: @departure.name)
+      -departure_child = child.departures.find_by(DepartureId: @departure.DepartureId)
       -if departure_child.present?
         .Landing__Content
           = render partial: "content", locals: { content: child}
-          - if @departure.tours.present?
+          - if departure_child.tours.present?
             = render partial: "calendar", locals: {departure_name: child.location_name, departure: departure_child}
