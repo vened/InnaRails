@@ -48,6 +48,8 @@ class PagesController < ApplicationController
 
       location["departures"].each do |departure|
 
+        p "---------------------"
+        p departure
         dep = page.departures.find_or_create_by({
                                                     RawName:     departure["RawName"],
                                                     DepartureId: departure["DepartureId"],
