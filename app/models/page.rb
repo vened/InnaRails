@@ -97,15 +97,15 @@ class Page
       self.title = self.RawName
     end
     self.slug   = self.title.parameterize
-    parent_page = self.parent
-    if parent_page.present?
-      parent_page.departures.each do |departure|
-        self.departures.find_or_create_by({
-                                              name:        departure.name,
-                                              DepartureId: departure.DepartureId
-                                          })
-      end
-    end
+    # parent_page = self.parent
+    # if parent_page.present?
+    #   parent_page.departures.each do |departure|
+    #     self.departures.find_or_create_by({
+    #                                           name:        departure.name,
+    #                                           DepartureId: departure.DepartureId
+    #                                       })
+    #   end
+    # end
     self.departures.each do |departure|
       if departure.name.blank?
         departure.name =  departure.RawName
