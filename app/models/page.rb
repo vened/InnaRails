@@ -14,7 +14,6 @@ class Page
   field :slug, type: String
   field :image, type: String
   field :visa, type: Boolean, default: true
-  field :pricing, type: Boolean, default: false
 
   mount_uploader :image, PhotoUploader
   embeds_many :photos
@@ -31,17 +30,14 @@ class Page
     end
     edit do
       field :title
+      field :ArrivalId
       field :location_name
-      field :visa
       field :slogan_1
       field :slogan_2
       field :parent
       field :image, :carrierwave
       field :location_text, :ck_editor
-      field :ArrivalId
-      field :pricing do
-        label 'Запустить парсинг цен'
-      end
+      field :visa
       field :departures
     end
   end
