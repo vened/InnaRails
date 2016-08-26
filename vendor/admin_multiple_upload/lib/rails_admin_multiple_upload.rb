@@ -20,7 +20,7 @@ module RailsAdmin
         end
 
         register_instance_option :http_methods do
-          [:get, :post]
+          [:get, :post, :delete]
         end
 
         register_instance_option :controller do
@@ -36,11 +36,19 @@ module RailsAdmin
                   @object.photos.create(image: image)
                 end
 
-                flash[:success] = 'Seus arquivos foram enviados.'
+                flash[:success] = 'Фотографии успешно загружены'
               end
+              render :action => @action.template_name
             end
 
-            render :action => @action.template_name
+            if request.delete?
+              @object = @abstract_model.model.find(params[:id])
+              @photo  = @object.photos.find(params[:image])
+              @photo.destroy
+              flash[:success] = 'Фотография успешно удалена'
+              redirect_to "/admin/page/#{params[:id]}/multiple_upload"
+            end
+
           end
         end
       end
