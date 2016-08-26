@@ -52,8 +52,7 @@ class PagesController < ApplicationController
         p departure
         dep = page.departures.find_or_create_by({
                                                     RawName:     departure["RawName"],
-                                                    DepartureId: departure["DepartureId"],
-                                                    isDefault:   departure["isDefault"]
+                                                    DepartureId: departure["DepartureId"]
                                                 })
 
         if dep.name.blank?
@@ -76,7 +75,7 @@ class PagesController < ApplicationController
           tours.push(tour)
         end
 
-        dep.update(tours: [])
+        dep.update(isDefault: departure["isDefault"], tours: [])
         dep.update(tours: tours)
 
       end
