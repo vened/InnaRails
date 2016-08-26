@@ -51,7 +51,7 @@ class PagesController < ApplicationController
         dep = page.departures.find_or_create_by({
                                                     RawName:     departure["RawName"],
                                                     DepartureId: departure["DepartureId"],
-                                                    isDefault:   (departure["RawName"] == "Москва") ? true : false
+                                                    isDefault:   departure["isDefault"]
                                                 })
 
         if dep.name.blank?
