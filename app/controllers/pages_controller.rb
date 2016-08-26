@@ -75,7 +75,19 @@ class PagesController < ApplicationController
           tours.push(tour)
         end
 
-        dep.update(isDefault: departure["isDefault"], tours: [])
+        if departure["isDefault"] == 'true'
+          dep.update(
+              isDefault: departure["isDefault"],
+              slug: page.title.parameterize,
+              tours:     []
+          )
+        else
+          dep.update(
+              isDefault: departure["isDefault"],
+              slug: page.title.parameterize + '-' + departure["RawName"].parameterize,
+              tours:     []
+          )
+        end
         dep.update(tours: tours)
 
       end

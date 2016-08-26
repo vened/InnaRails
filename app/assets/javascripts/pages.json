@@ -1,115 +1,212 @@
-[
-  {
-    "ArrivalId": "6803",
-    "RawName": "Калуга",
-    "departures": [
-      {
-        "DepartureId": "6733",
-        "RawName": "Москва",
-        "tours": [
-          {
-            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
-            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
-            "TicketClass": 0,
-            "Adult": 2,
-            "Children": null,
-            "Price": 73389.0
-          },
-          {
-            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
-            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
-            "TicketClass": 0,
-            "Adult": 2,
-            "Children": null,
-            "Price": 73389.0
-          }
-        ]
-      },
-      {
-        "DepartureId": "3005",
-        "RawName": "Санкт-Петербург",
-        "tours": [
-          {
-            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
-            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
-            "TicketClass": 0,
-            "Adult": 2,
-            "Children": null,
-            "Price": 7338.0
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "ArrivalId": "5859",
-    "RawName": "Пенза",
-    "departures": [
-      {
-        "DepartureId": "6733",
-        "RawName": "Москва",
-        "tours": [
-          {
-            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
-            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
-            "TicketClass": 0,
-            "Adult": 2,
-            "Children": null,
-            "Price": 73389.0
-          },
-          {
-            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
-            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
-            "TicketClass": 0,
-            "Adult": 2,
-            "Children": null,
-            "Price": 73389.0
-          }
-        ]
-      },
-      {
-        "DepartureId": "3005",
-        "RawName": "Санкт-Петербург",
-        "tours": [
-          {
-            "StartVoyageDate": "2016-09-06T00:00:00.000Z",
-            "EndVoyageDate": "2016-09-13T00:00:00.000Z",
-            "TicketClass": 0,
-            "Adult": 2,
-            "Children": null,
-            "Price": 7338.0
-          }
-        ]
-      }
-    ]
-  }
-//]
-
 {
   "ArrivalList": [
     {
-      "ArrivalId": 680,
-      "RawName": "Some RawName",
+      "ArrivalId": 1911,
+      "RawName": "Эйлат",
       "departures": [
         {
-          "DepartureId": 6733,
-          "RawName": "Another RawName",
+          "isDefault": "true",
+          "DepartureId": 2874,
+          "RawName": "Краснодар",
           "tours": [
             {
-              "StartVoyageDate": "2016-09-06T00:00:00.000Z",
-              "EndVoyageDate": "2016-09-13T00:00:00.000Z",
-              "Price": 100,
+              "StartVoyageDate": "2016-09-02T17:50:30.7330057+03:00",
+              "EndVoyageDate": "2016-09-09T17:50:30.7335064+03:00",
               "SearchData": {
                 "Adult": 2,
-                "ChildAges": [
-                  2,
-                  4,
-                  5
-                ],
-                "Since": "2016-09-06T00:00:00.000Z",
-                "Till": "2016-09-06T00:00:00.000Z",
+                "ChildAges": [],
+                "Since": "2016-09-02T17:50:30.7330057+03:00",
+                "Till": "2016-09-09T17:50:30.7335064+03:00",
                 "TicketClass": 0
-              }
+              },
+              "AveragePrice": 0,
+              "MinPrice": 0,
+              "MaxPrice": 0,
+              "OffersCount": 0,
+              "Price": 0
+            },
+            {
+              "StartVoyageDate": "2016-09-25T17:50:30.7350068+03:00",
+              "EndVoyageDate": "2016-10-02T17:50:30.7350068+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-25T17:50:30.7350068+03:00",
+                "Till": "2016-10-02T17:50:30.7350068+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 0,
+              "MinPrice": 0,
+              "MaxPrice": 0,
+              "OffersCount": 0,
+              "Price": 0
+            },
+            {
+              "StartVoyageDate": "2016-09-02T17:50:30.7350068+03:00",
+              "EndVoyageDate": "2016-09-12T17:50:30.7350068+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-02T17:50:30.7350068+03:00",
+                "Till": "2016-09-12T17:50:30.7350068+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 0,
+              "MinPrice": 0,
+              "MaxPrice": 0,
+              "OffersCount": 0,
+              "Price": 0
+            },
+            {
+              "StartVoyageDate": "2016-09-25T17:50:30.7350068+03:00",
+              "EndVoyageDate": "2016-10-05T17:50:30.7350068+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-25T17:50:30.7350068+03:00",
+                "Till": "2016-10-05T17:50:30.7350068+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 246505.7,
+              "MinPrice": 135076.8,
+              "MaxPrice": 464234.4,
+              "OffersCount": 140,
+              "Price": 246505.7
+            },
+            {
+              "StartVoyageDate": "2016-09-02T17:50:30.7350068+03:00",
+              "EndVoyageDate": "2016-09-16T17:50:30.7350068+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-02T17:50:30.7350068+03:00",
+                "Till": "2016-09-16T17:50:30.7350068+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 0,
+              "MinPrice": 0,
+              "MaxPrice": 0,
+              "OffersCount": 0,
+              "Price": 0
+            },
+            {
+              "StartVoyageDate": "2016-09-25T17:50:30.7350068+03:00",
+              "EndVoyageDate": "2016-10-09T17:50:30.7350068+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-25T17:50:30.7350068+03:00",
+                "Till": "2016-10-09T17:50:30.7350068+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 316131.4,
+              "MinPrice": 154086.4,
+              "MaxPrice": 639471.2,
+              "OffersCount": 1512,
+              "Price": 316131.4
+            }
+          ]
+        },
+        {
+          "isDefault": "false",
+          "DepartureId": 3005,
+          "RawName": "Санкт-Петербург",
+          "tours": [
+            {
+              "StartVoyageDate": "2016-09-02T17:50:30.7640679+03:00",
+              "EndVoyageDate": "2016-09-09T17:50:30.7640679+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-02T17:50:30.7640679+03:00",
+                "Till": "2016-09-09T17:50:30.7640679+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 368500,
+              "MinPrice": 311211.9,
+              "MaxPrice": 490665.8,
+              "OffersCount": 2200,
+              "Price": 368500
+            },
+            {
+              "StartVoyageDate": "2016-09-25T17:50:30.7640679+03:00",
+              "EndVoyageDate": "2016-10-02T17:50:30.7640679+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-25T17:50:30.7640679+03:00",
+                "Till": "2016-10-02T17:50:30.7640679+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 177227.2,
+              "MinPrice": 115710.6,
+              "MaxPrice": 320380.2,
+              "OffersCount": 416,
+              "Price": 177227.2
+            },
+            {
+              "StartVoyageDate": "2016-09-02T17:50:30.7640679+03:00",
+              "EndVoyageDate": "2016-09-12T17:50:30.7640679+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-02T17:50:30.7640679+03:00",
+                "Till": "2016-09-12T17:50:30.7640679+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 392752.7,
+              "MinPrice": 316265.5,
+              "MaxPrice": 638647.8,
+              "OffersCount": 1728,
+              "Price": 392752.7
+            },
+            {
+              "StartVoyageDate": "2016-09-25T17:50:30.7640679+03:00",
+              "EndVoyageDate": "2016-10-05T17:50:30.7640679+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-25T17:50:30.7640679+03:00",
+                "Till": "2016-10-05T17:50:30.7640679+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 226804.6,
+              "MinPrice": 116714.1,
+              "MaxPrice": 436134.3,
+              "OffersCount": 2268,
+              "Price": 226804.6
+            },
+            {
+              "StartVoyageDate": "2016-09-02T17:50:30.7640679+03:00",
+              "EndVoyageDate": "2016-09-16T17:50:30.7640679+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-02T17:50:30.7640679+03:00",
+                "Till": "2016-09-16T17:50:30.7640679+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 459668,
+              "MinPrice": 351904,
+              "MaxPrice": 684685.6,
+              "OffersCount": 1400,
+              "Price": 459668
+            },
+            {
+              "StartVoyageDate": "2016-09-25T17:50:30.7640679+03:00",
+              "EndVoyageDate": "2016-10-09T17:50:30.7640679+03:00",
+              "SearchData": {
+                "Adult": 2,
+                "ChildAges": [],
+                "Since": "2016-09-25T17:50:30.7640679+03:00",
+                "Till": "2016-10-09T17:50:30.7640679+03:00",
+                "TicketClass": 0
+              },
+              "AveragePrice": 297502.3,
+              "MinPrice": 138477.2,
+              "MaxPrice": 611302.3,
+              "OffersCount": 1404,
+              "Price": 297502.3
             }
           ]
         }

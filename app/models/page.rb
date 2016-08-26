@@ -54,7 +54,7 @@ class Page
   end
 
   before_create :generate_slug
-  before_update :generate_slug, :start_search
+  before_update :generate_slug
 
   def start_search
     # if self.pricing.present?
