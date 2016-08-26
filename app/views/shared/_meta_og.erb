@@ -1,0 +1,29 @@
+<%- content_for :og do %>
+    <title><%= meta_title %></title>
+    <%- if meta_desc.present? %>
+        <meta name="description" content="<%= truncate(meta_desc, length: 200) %>"/>
+    <%- end %>
+    <%- if meta_keyword.present? %>
+        <meta name="keywords" content="<%= meta_keyword %>"/>
+    <%- end %>
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="inna.ru"/>
+
+    <%- if meta_title.present? %>
+        <meta property="og:title" content="<%= meta_title %>"/>
+    <%- end %>
+
+    <%- if og_description.present? %>
+        <meta property="og:description" content="<%= raw og_description %>"/>
+    <%- end %>
+
+    <%- if page_url.present? %>
+        <meta property="og:url" content="<%= page_url %>"/>
+    <%- end %>
+
+    <%- if photo.present? %>
+        <meta property="og:image" content="<%= photo %>"/>
+    <%- end %>
+
+<%- end %>

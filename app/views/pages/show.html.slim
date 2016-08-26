@@ -1,3 +1,11 @@
+= render partial: "shared/meta_og",
+        locals: { meta_title: @page.meta_title.present? ? @page.meta_title : @page_title,
+                  meta_desc:  @page.meta_description.present? ? @page.meta_description : @page.location_text,
+                  meta_keyword:  @page.meta_keyword,
+                  og_description: @page.location_text,
+                  page_url:   page_url(@departure.slug),
+                  photo:     @page.image.large.url}
+
 .Landing
   = render 'head'
   = render 'nav'

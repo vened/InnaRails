@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>InnaRails</title>
+    <%= yield :og %>
     <%= csrf_meta_tags %>
-
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&subset=cyrillic" rel="stylesheet">
     <%= stylesheet_link_tag 'application_landing', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'landing', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
 <%= yield %>
 <%= render 'shared/footer' %>
+<%= javascript_include_tag 'landing', 'data-turbolinks-track': 'reload' %>
 </body>
 </html>
