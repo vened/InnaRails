@@ -113,7 +113,7 @@ class Page
       if departure.isDefault.present?
         departure.slug = self.title.parameterize
       else
-        departure.slug = self.title.parameterize + ' ' + departure.RawName.parameterize
+        departure.slug = self.title.parameterize + '-' + departure.RawName.parameterize
       end
     end
   end

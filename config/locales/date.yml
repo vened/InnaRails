@@ -265,4 +265,5 @@ ru:
       custom: "%d %B"
       custom_short: "%d"
       custom_month: "%B"
+      inna: "%d.%m.%Y"
     pm: вечера

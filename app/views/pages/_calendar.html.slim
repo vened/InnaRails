@@ -6,7 +6,22 @@ h2.LandingTitleH2
 -if departure.tours.present?
   .LandingTours
     - departure.tours.each do |tour|
-      = link_to tour[:SearchUrl], target: '_blank', class: 'LandingTour' do
+      /https://inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
+      - url = ["https://inna.ru/#/packages/search/-",
+              departure.DepartureId,
+              "-",
+              @page.ArrivalId,
+              "-",
+              "#{l tour[:StartVoyageDate], :format => :inna}",
+              "-",
+              "#{l tour[:EndVoyageDate], :format => :inna}",
+              "-",
+              tour[:TicketClass],
+              "-",
+              tour[:Adult],
+              "-",
+              ]
+      = link_to url.join(), target: '_blank', class: 'LandingTour' do
         .LandingTour__left
           .LandingTour__title Авиа + Отель
           .LandingTour__data
