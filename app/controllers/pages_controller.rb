@@ -47,13 +47,17 @@ class PagesController < ApplicationController
       page = Page.find_or_create_by(ArrivalId: location["ArrivalId"], RawName: location["RawName"])
 
       location["departures"].each do |departure|
-        departure["name"] = departure["RawName"]
 
         dep = page.departures.find_or_create_by({
-                                              name:        departure["RawName"],
-                                              RawName:     departure["RawName"],
-                                              DepartureId: departure["DepartureId"]
-                                          })
+                                                    RawName:     departure["RawName"],
+                                                    DepartureId: departure["DepartureId"],
+                                                    isDefault:   (departure["RawName"] == "Москва") ? true : false
+                                                })
+
+        if dep.name.blank?
+          dep.update(name: departure["RawName"])
+        end
+
         tours = []
         departure["tours"].each do |tour|
           tour = {
