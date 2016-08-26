@@ -144,7 +144,7 @@ body {
 }
 .LandingTitleH2 {
     position:        relative;
-    margin:          0 0 30px;
+    margin:          0 0 15px;
     text-align:      center;
     font-size:       1rem;
     font-weight:     500;
@@ -233,7 +233,23 @@ body {
     padding:     8px 8px 8px 35px;
     border-left: 1px solid $gray-landing;
 }
-
+.LandingTours__Head {
+    margin: 0 0 15px;
+}
+.LandingTours__Label {
+    font-size:      .8rem;
+    color:          $gray-landing-2;
+    vertical-align: middle;
+}
+.LandingTours__LabelImg {
+    margin:         0 6px;
+    vertical-align: middle;
+}
+.LandingTours__LabelPlus {
+    display:        inline-block;
+    font-size:      1rem;
+    vertical-align: middle;
+}
 
 
 

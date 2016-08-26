@@ -3,7 +3,19 @@ h2.LandingTitleH2
     | Календарь цен
     |&nbsp;
     = departure_name
--if departure.tours.present?
+
+.LandingTours__Head
+  .LandingTours__Label
+    | Цена включает:
+    = image_tag "svg-icons/icon-flight", class: "LandingTours__LabelImg"
+    .LandingTours__LabelPlus +
+    = image_tag "svg-icons/icon-hotel", class: "LandingTours__LabelImg"
+    .LandingTours__LabelPlus +
+    = image_tag "svg-icons/icon-transfer", class: "LandingTours__LabelImg"
+    .LandingTours__LabelPlus +
+    = image_tag "svg-icons/icon-strah", class: "LandingTours__LabelImg"
+
+- if departure.tours.present?
   .LandingTours
     - departure.tours.each do |tour|
       /https://inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
@@ -20,7 +32,7 @@ h2.LandingTitleH2
               "-",
               tour[:Adult],
               "-",
-              ]
+      ]
       = link_to url.join(), target: '_blank', class: 'LandingTour' do
         .LandingTour__left
           .LandingTour__title Авиа + Отель

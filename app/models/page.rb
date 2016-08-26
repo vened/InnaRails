@@ -15,6 +15,10 @@ class Page
   field :image, type: String
   field :visa, type: Boolean, default: true
 
+  field :meta_title, type: String
+  field :meta_keyword, type: String
+  field :meta_description, type: String
+
   mount_uploader :image, PhotoUploader
   embeds_many :photos
   embeds_many :departures
@@ -38,6 +42,9 @@ class Page
       field :image, :carrierwave
       field :location_text, :ck_editor
       field :visa
+      field :meta_title
+      field :meta_keyword
+      field :meta_description
       field :departures
     end
   end
