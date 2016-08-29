@@ -1,7 +1,7 @@
 <%- content_for :og do %>
-    <title><%= meta_title %></title>
+        <title><%= meta_title %></title>
     <%- if meta_desc.present? %>
-        <meta name="description" content="<%= truncate(meta_desc, length: 200) %>"/>
+        <meta name="description" content="<%= meta_desc%>"/>
     <%- end %>
     <%- if meta_keyword.present? %>
         <meta name="keywords" content="<%= meta_keyword %>"/>
@@ -15,7 +15,7 @@
     <%- end %>
 
     <%- if og_description.present? %>
-        <meta property="og:description" content="<%= raw og_description %>"/>
+        <meta property="og:description" content="<%= meta_desc %>"/>
     <%- end %>
 
     <%- if page_url.present? %>
