@@ -1,4 +1,6 @@
-= render partial: "shared/meta_og",
+= debug @page
+br
+/= render partial: "shared/meta_og",
         locals: { meta_title: @page.meta_title,
                   meta_desc:  @page.meta_description,
                   meta_keyword:  @page.meta_keyword,
@@ -6,7 +8,7 @@
                   page_url:   page_url(@departure.slug),
                   photo:     @page.image.large.url}
 
-.Landing
+/.Landing
   = render 'head'
   = render 'nav'
 
