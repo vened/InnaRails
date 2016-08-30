@@ -1,3 +1,9 @@
+# создание бекапа
+# mongodump -h 127.0.0.1
+# восстановление бекапа
+# mongorestore --verbose --drop --db santemax_development dump/santemax_production
+# --drop удаляет таблицу перед вставкой
+
 development:
   # Configure available database clients. (required)
   clients:
