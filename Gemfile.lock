@@ -14,6 +14,14 @@ GIT
       orm_adapter (~> 0.5.0)
 
 GIT
+  remote: git://github.com/mongodb/mongoid.git
+  revision: 71c29a80599087008ecfbd057d3d049c2153c7ce
+  specs:
+    mongoid (6.0.0.rc0)
+      activemodel (~> 5.0)
+      mongo (~> 2.3)
+
+GIT
   remote: git://github.com/mshibuya/remotipart.git
   revision: 88d9a7d55bde66acb6cf3a3c6036a5a1fc991d5e
   specs:
@@ -33,17 +41,9 @@ GIT
   specs:
     breadcrumbs_on_rails (3.0.0)
 
-GIT
-  remote: https://github.com/mongodb/mongoid.git
-  revision: 08800d306e1aa659389f9908a8d3cb7eb8834fbd
-  specs:
-    mongoid (6.0.0.rc0)
-      activemodel (~> 5.0)
-      mongo (~> 2.2)
-
 GEM
   remote: https://rubygems.org/
-  remote: https://rails-assets.org/
+  remote: http://rails-assets.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)

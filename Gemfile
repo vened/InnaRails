@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
-gem 'mongoid', git: 'https://github.com/mongodb/mongoid.git'
+gem 'mongoid', git: 'git://github.com/mongodb/mongoid.git'
 # gem 'mongoid-ancestry'
 # gem 'mongoid-tree', :require => 'mongoid/tree'
 gem 'mongoid-tree', :git => 'git://github.com/benedikt/mongoid-tree'
@@ -31,7 +31,7 @@ gem 'breadcrumbs_on_rails', github: 'weppos/breadcrumbs_on_rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'sidekiq'
-gem 'listen', '~> 3.0.5'
+# gem 'listen', '~> 3.0.5'
 
 ###### localisation ######
 gem 'rails-i18n', '~> 5.0.0'
@@ -45,7 +45,7 @@ gem 'uglifier', '>= 1.3.0'
 gem "react_on_rails", "~> 5"
 gem 'therubyracer', platforms: :ruby
 
-gem 'rails-assets-lightgallery.js', source: 'https://rails-assets.org'
+gem 'rails-assets-lightgallery.js', source: 'http://rails-assets.org'
 
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails'
