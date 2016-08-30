@@ -20,7 +20,8 @@ gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
 
 gem 'dropzonejs-rails'
-gem 'rails_admin_multiple_upload', path: 'vendor/admin_multiple_upload'
+# gem 'rails_admin_multiple_upload', path: 'vendor/admin_multiple_upload'
+gem 'rails_admin_multiple_upload', :git => 'git://github.com/vened/admin_multiple_upload'
 
 gem 'slim-rails', '~> 3.1'
 

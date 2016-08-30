@@ -20,6 +20,14 @@ GIT
     remotipart (1.2.1)
 
 GIT
+  remote: git://github.com/vened/admin_multiple_upload
+  revision: cba9aa5285e84fc65d5212b4bdb776638dce6b70
+  specs:
+    rails_admin_multiple_upload (0.0.1)
+      rails (~> 5.0.0.1)
+      simple_form
+
+GIT
   remote: git://github.com/weppos/breadcrumbs_on_rails.git
   revision: 8d3ef09135d6673788c477120702076cd28670ab
   specs:
@@ -32,13 +40,6 @@ GIT
     mongoid (6.0.0.rc0)
       activemodel (~> 5.0)
       mongo (~> 2.2)
-
-PATH
-  remote: vendor/admin_multiple_upload
-  specs:
-    rails_admin_multiple_upload (0.0.1)
-      rails (~> 5.0.0.1)
-      simple_form
 
 GEM
   remote: https://rubygems.org/
@@ -280,7 +281,7 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
-    simple_form (3.2.1)
+    simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
     slim (3.0.7)
