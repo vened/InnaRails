@@ -1,7 +1,7 @@
 # создание бекапа
 # mongodump -h 127.0.0.1
 # восстановление бекапа
-# mongorestore --verbose --drop --db santemax_development dump/santemax_production
+# mongorestore --verbose --drop --db inna_rails_development dump/inna_rails_development
 # --drop удаляет таблицу перед вставкой
 
 development:
