@@ -18,7 +18,7 @@
 # React on Rails
 npm-debug.log
 npm-debug.log.*
-#node_modules
+node_modules
 
 # Generated js bundles
 /app/assets/webpack/*
