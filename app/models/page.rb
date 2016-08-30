@@ -1,6 +1,7 @@
 class Page
   include Mongoid::Document
   include Mongoid::Tree
+  # include ActiveModel::Serialization
   # include Mongoid::Ancestry
   # has_ancestry
 
@@ -34,15 +35,15 @@ class Page
     end
     edit do
       field :title
-      field :ArrivalId
       field :location_name
+      field :meta_title
+      field :ArrivalId
       field :slogan_1
       field :slogan_2
       field :parent
+      field :visa
       field :image, :carrierwave
       field :location_text, :ck_editor
-      field :visa
-      field :meta_title
       field :meta_keyword
       field :meta_description
       field :departures
@@ -64,8 +65,32 @@ class Page
     # SearchJob.perform_later(self.slug)
   end
 
+  # attr_accessor :title, :url
+
+  # def attributes
+  #   {
+  #       'title' => nil,
+  #       'url'  => nil
+  #   }
+  # end
+
   def self.get_data slug
-    find_by({departures: {'$all' => [{'$elemMatch' => {slug: slug}}]}})
+    page = self.where({departures: {'$all' => [{'$elemMatch' => {slug: slug}}]}})[0]
+    if page.present?
+      page = page
+    else
+      page = self.find_by({slug: slug})
+    end
+
+    # page.attributes.slug = slug
+    # p page.attributes
+    # page.slug  = 'srec'
+    page.title = 'srec'
+    # page.slug = 'asrcf'
+
+    # page.serializable_hash
+    # page.attributes
+
   end
 
 
