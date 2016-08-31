@@ -1,55 +1,54 @@
-h2.LandingTitleH2
-  .LandingTitleH2__inset
-    | Календарь цен
-    |&nbsp;
-    = departure_name
+- if departure.present?
+  - if departure.tours.present?
+    h2.LandingTitleH2
+      .LandingTitleH2__inset= departure["calendar_title"]
 
-.LandingTours__Head
-  .LandingTours__Label
-    | Цена включает:
-    = image_tag "svg-icons/icon-flight", class: "LandingTours__LabelImg"
-    .LandingTours__LabelPlus +
-    = image_tag "svg-icons/icon-hotel", class: "LandingTours__LabelImg"
-    .LandingTours__LabelPlus +
-    = image_tag "svg-icons/icon-transfer", class: "LandingTours__LabelImg"
-    .LandingTours__LabelPlus +
-    = image_tag "svg-icons/icon-strah", class: "LandingTours__LabelImg"
+    .LandingTours__Head
+      .LandingTours__Label
+        | Цена включает:
+        = image_tag "svg-icons/icon-flight", class: "LandingTours__LabelImg"
+        .LandingTours__LabelPlus +
+        = image_tag "svg-icons/icon-hotel", class: "LandingTours__LabelImg"
+        .LandingTours__LabelPlus +
+        = image_tag "svg-icons/icon-transfer", class: "LandingTours__LabelImg"
+        .LandingTours__LabelPlus +
+        = image_tag "svg-icons/icon-strah", class: "LandingTours__LabelImg"
 
-- if departure.tours.present?
-  .LandingTours
-    - departure.tours.each do |tour|
-      /https://inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
-      - url = ["https://inna.ru/#/packages/search/",
-              departure.DepartureId,
-              "-",
-              @page.ArrivalId,
-              "-",
-              "#{l tour[:StartVoyageDate], :format => :inna}",
-              "-",
-              "#{l tour[:EndVoyageDate], :format => :inna}",
-              "-",
-              0,
-              "-",
-              2,
-              "-",
-      ]
-      = link_to url.join(), target: '_blank', class: 'LandingTour' do
-        .LandingTour__left
-          .LandingTour__title Авиа + Отель
-          .LandingTour__data
-            - month_1 = l tour[:StartVoyageDate], :format => :custom_month
-            - month_2 = l tour[:EndVoyageDate], :format => :custom_month
-            - if month_1 == month_2
-              = l tour[:StartVoyageDate], :format => :custom_short
-              | -
-              = l tour[:EndVoyageDate], :format => :custom
-            - else
-              = l tour[:StartVoyageDate], :format => :custom
-              | -
-              = l tour[:EndVoyageDate], :format => :custom
-        .LandingTour__right
-          .LandingTour__count На двоих
-          .LandingTour__price
-            span.LandingTour__pricelabel от
-            span.LandingTour__priceCurrency= number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "")
-            span.LandingTour__priceUnit руб.
+
+    .LandingTours
+      - departure.tours.each do |tour|
+          /https://inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
+          - url = ["https://inna.ru/#/packages/search/",
+                  departure.DepartureId,
+                  "-",
+                  @page["ArrivalId"],
+                  "-",
+                  "#{l tour[:StartVoyageDate], :format => :inna}",
+                  "-",
+                  "#{l tour[:EndVoyageDate], :format => :inna}",
+                  "-",
+                  0,
+                  "-",
+                  2,
+                  "-",
+          ]
+          = link_to url.join(), target: '_blank', class: 'LandingTour' do
+            .LandingTour__left
+              .LandingTour__title Авиа + Отель
+              .LandingTour__data
+                - month_1 = l tour[:StartVoyageDate], :format => :custom_month
+                - month_2 = l tour[:EndVoyageDate], :format => :custom_month
+                - if month_1 == month_2
+                  = l tour[:StartVoyageDate], :format => :custom_short
+                  | -
+                  = l tour[:EndVoyageDate], :format => :custom
+                - else
+                  = l tour[:StartVoyageDate], :format => :custom
+                  | -
+                  = l tour[:EndVoyageDate], :format => :custom
+            .LandingTour__right
+              .LandingTour__count На двоих
+              .LandingTour__price
+                span.LandingTour__pricelabel от
+                span.LandingTour__priceCurrency= number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "")
+                span.LandingTour__priceUnit руб.

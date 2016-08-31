@@ -3,9 +3,9 @@
     .InHeaderContent__Container
 
       .InHeaderContent__Titles
-        h1.InHeaderContent__Title= @page_title
-        h2.InHeaderContent__Slogan1= @page.slogan_1
-        .InHeaderContent__Slogan2= @page.slogan_2
+        h1.InHeaderContent__Title= @page["title"]
+        h2.InHeaderContent__Slogan1= @page["slogan_1"]
+        .InHeaderContent__Slogan2= @page["slogan_2"]
 
       .InHeaderPlus
         .InHeaderPlus__Title
@@ -39,4 +39,4 @@
               br
               | Гарантия поездки
   = render 'header'
-  = image_tag @page.image.large, class: "InHeaderImage"
+  = image_tag @page["photo"], class: "InHeaderImage"

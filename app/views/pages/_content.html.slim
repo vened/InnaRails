@@ -1,6 +1,6 @@
 .Landing__ContentHead
-  h2.Landing__ContentTitle= content.location_name
-  - unless content.visa.present?
+  h2.Landing__ContentTitle= content["location_name"]
+  - unless content["visa"].present?
     .NoVisa
       .NoVisa__Icon
       .NoVisa__Text Виза не нужна
@@ -8,10 +8,10 @@
 .Landing__ContentTextContainer
   .Landing__ContentText
     .Landing__ContentImages#animated-thumbnials
-      - content.photos.first(1).each_with_index do |photo, index|
+      - content["photos"].first(1).each_with_index do |photo, index|
         = link_to photo.image.large.url, class: 'Landing__ContentImage' do
           - if index == 0
             = image_tag photo.image.large
           - else
             = image_tag photo.image.thumb
-    div= raw content.location_text
+    div= raw content["location_text"]

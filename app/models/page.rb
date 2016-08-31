@@ -1,9 +1,7 @@
 class Page
   include Mongoid::Document
+  include Mongoid::Timestamps::Short
   include Mongoid::Tree
-  # include ActiveModel::Serialization
-  # include Mongoid::Ancestry
-  # has_ancestry
 
   field :title, type: String
   field :RawName, type: String
@@ -26,7 +24,6 @@ class Page
 
   accepts_nested_attributes_for :departures, :allow_destroy => true
 
-  # validates :parent_id, :presence => false
   validates_associated :parent, :children
 
   rails_admin do
@@ -34,19 +31,45 @@ class Page
       field :title
     end
     edit do
-      field :title
-      field :location_name
-      field :meta_title
-      field :ArrivalId
-      field :slogan_1
-      field :slogan_2
-      field :parent
-      field :visa
-      field :image, :carrierwave
-      field :location_text, :ck_editor
-      field :meta_keyword
-      field :meta_description
-      field :departures
+      field :title, :string do
+        label 'Заголовок страницы'
+      end
+      field :slogan_1, :string do
+        label 'Слоган 1'
+      end
+      field :slogan_2, :string do
+        label 'Слоган 1'
+      end
+      field :ArrivalId, :string do
+        label 'Системный ID локации'
+      end
+      field :location_name, :string do
+        label 'Название локации'
+      end
+      field :meta_title, :string do
+        label 'SEO заголовок (title)'
+      end
+      field :meta_keyword, :string do
+        label 'SEO ключевые слова (keywords)'
+      end
+      field :meta_description, :string do
+        label 'SEO описание (description)'
+      end
+      field :parent do
+        label 'Родительская страница'
+      end
+      field :visa do
+        label 'Нужна виза'
+      end
+      field :image, :carrierwave do
+        label 'Фото в шапку страницы'
+      end
+      field :location_text, :ck_editor do
+        label 'Описание'
+      end
+      field :departures do
+        label 'Доступные города отправления'
+      end
     end
   end
 
@@ -65,31 +88,52 @@ class Page
     # SearchJob.perform_later(self.slug)
   end
 
-  # attr_accessor :title, :url
-
-  # def attributes
-  #   {
-  #       'title' => nil,
-  #       'url'  => nil
-  #   }
-  # end
 
   def self.get_data slug
-    page = self.where({departures: {'$all' => [{'$elemMatch' => {slug: slug}}]}})[0]
-    if page.present?
-      page = page
+    current_page = self.where({departures: {'$all' => [{'$elemMatch' => {slug: slug}}]}})[0]
+    if current_page.present?
+      current_page = current_page
+      departure    = current_page.departures.find_by(slug: slug)
+
+      title = departure.title.present? ? departure.title : current_page.title
+      url   = departure.slug
+      tours = departure.tours
+      nav   = current_page.nav_data(departure.name)
     else
-      page = self.find_by({slug: slug})
+      current_page = self.find_by({slug: slug})
+
+
+      title     = current_page.title
+      url       = current_page.slug
+      departure = nil
+      tours     = nil
+      nav       = current_page.nav_data("")
     end
 
-    # page.attributes.slug = slug
-    # p page.attributes
-    # page.slug  = 'srec'
-    page.title = 'srec'
-    # page.slug = 'asrcf'
+    page = {
+        'title'            => title,
+        'slogan_1'         => current_page.slogan_1,
+        'slogan_2'         => current_page.slogan_2,
+        'location_name'    => current_page.location_name,
+        'location_text'    => current_page.location_text,
 
-    # page.serializable_hash
-    # page.attributes
+        'meta_title'       => current_page.meta_title.present? ? current_page.meta_title : '',
+        'meta_description' => current_page.meta_description,
+        'meta_keyword'     => current_page.meta_keyword,
+        'url'              => url,
+        'photo'            => current_page.image.large.url.present? ? current_page.image.large.url : '',
+        'photos'           => current_page.photos,
+
+        'visa'             => current_page.visa,
+
+        'ArrivalId'        => current_page.ArrivalId,
+        'departure'        => departure,
+        'tours'            => tours,
+
+        'childrens'        => current_page.children,
+        'nav'              => nav,
+        'parent'           => current_page.ancestors
+    }
 
   end
 
@@ -124,7 +168,6 @@ class Page
 
   private
   def generate_slug
-    p "========"
     unless self.title
       self.title = self.RawName
     end

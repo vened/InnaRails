@@ -1,6 +1,6 @@
 .LandingNav__container
   .LandingNav
     .LandingNavMenu
-      - @nav.each do |child_page|
+      - @page["nav"].each do |child_page|
         = link_to child_page[:title], page_path(child_page[:slug]),
                 class: "LandingNavMenu__Item #{request.path == page_path(child_page) ? 'LandingNavMenu__Item-active' : nil}"

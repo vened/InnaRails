@@ -1,12 +1,11 @@
 /= debug @page
-/br
 = render partial: "shared/meta_og",
-        locals: { meta_title: @page.meta_title,
-                  meta_desc:  @page.meta_description,
-                  meta_keyword:  @page.meta_keyword,
-                  og_description: @page.location_text,
-                  page_url:   page_url(@departure.slug),
-                  photo:     @page.image.large.url}
+        locals: {meta_title: @page["meta_title"],
+                meta_desc: @page["meta_description"],
+                meta_keyword: @page["meta_keyword"],
+                og_description: @page["text"],
+                page_url:   page_url(@page["url"]),
+                photo: @page["photo"]}
 
 .Landing
   = render 'head'
@@ -16,16 +15,15 @@
     .Landing__Content
       .LandingBreadcrumbs= render_breadcrumbs separator: ' / '
 
-      = render partial: "content", locals: { content: @page}
+      = render partial: "content", locals: {content: @page}
 
-      -if @departure.tours.present?
-        = render partial: "calendar", locals: { departure_name: @page.location_name, departure: @departure }
+      = render partial: "calendar", locals: {departure_name: @page["location_name"], departure: @page["departure"]}
 
 
-    -@childrens.each do |child|
-      -departure_child = child.departures.find_by(DepartureId: @departure.DepartureId)
-      -if departure_child.present?
+    - @page["childrens"].each do |child|
+      - departure_child = child.departures.where(DepartureId: @page["departure"].DepartureId)[0]
+      - if departure_child.present?
+        - child_page = Page.get_data(departure_child.slug)
         .Landing__Content
-          = render partial: "content", locals: { content: child}
-          - if departure_child.tours.present?
-            = render partial: "calendar", locals: {departure_name: child.location_name, departure: departure_child}
+          = render partial: "content", locals: {content: child_page}
+          = render partial: "calendar", locals: {departure_name: child_page["location_name"], departure: child_page["departure"]}
