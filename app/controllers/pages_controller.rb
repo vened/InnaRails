@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
     if @page["parent"].present?
       @page["parent"].each do |p|
-        departure = p.departures.where(DepartureId: @page["departure"].DepartureId)[0]
+        departure = @page["departure"].present? ? p.departures.where(DepartureId: @page["departure"].DepartureId)[0] : nil
         if departure.present?
           add_breadcrumb departure.title ? departure.title : p.title, page_path(departure.slug)
         else

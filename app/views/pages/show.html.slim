@@ -21,7 +21,7 @@
 
 
     - @page["childrens"].each do |child|
-      - departure_child = child.departures.where(DepartureId: @page["departure"].DepartureId)[0]
+      - departure_child = @page["departure"].present? ? child.departures.where(DepartureId: @page["departure"].DepartureId)[0] : nil
       - if departure_child.present?
         - child_page = Page.get_data(departure_child.slug)
         .Landing__Content
