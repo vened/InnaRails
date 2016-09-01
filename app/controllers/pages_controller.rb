@@ -9,22 +9,10 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.get_data(params[:id])
-    # @page      = Page.find_by({departures: {'$all' => [{'$elemMatch' => {slug: params[:id]}}]}})
-    # @departure = @page.departures.find_by(slug: params[:id])
-    # if @departure.name.present?
-    #   @nav        = @page.nav_data(@departure.name)
-    #   @page_title = @page.title + " " + @departure.name
-    # else
-    #   @nav        = @page.nav_data("")
-    #   @page_title = @page.title
-    # end
-    #
-    # @childrens = @page.children
-    #
-    # @parent = @page.ancestors
+
     if @page["parent"].present?
       @page["parent"].each do |p|
-        departure = p.departures.find_by(DepartureId: @page["departure"].DepartureId)
+        departure = p.departures.where(DepartureId: @page["departure"].DepartureId)[0]
         if departure.present?
           add_breadcrumb departure.title ? departure.title : p.title, page_path(departure.slug)
         else
@@ -33,20 +21,8 @@ class PagesController < ApplicationController
       end
       add_breadcrumb @page["title"]
     end
-    # if @parent.present?
-    #   @page.ancestors.each do |p|
-    #     departure = p.departures.find_by(DepartureId: @departure.DepartureId)
-    #     if departure.present?
-    #       add_breadcrumb p.title + " " + departure.name, page_path(departure.slug)
-    #     else
-    #       add_breadcrumb p.title, page_path(p)
-    #     end
-    #   end
-    #   add_breadcrumb @page_title
-    # end
 
     # SearchJob.set(wait: 1.second).perform_later(@page.slug)
-    # render :slim => @page, include: '**'
   end
 
   def update

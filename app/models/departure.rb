@@ -10,6 +10,21 @@ class Departure
   field :isDefault, type: Boolean, default: false
   embedded_in :page
 
+  #--
+  # Валидации
+  validates_presence_of :name, message: 'Название города не может быть пустым!'
+  validates_uniqueness_of :name, message: 'Название города должно быть уникальным, введенное вами уже существует в системе!'
+  validates_length_of :name, minimum: 1, maximum: 100, message: 'Название города не может быть короче 1 символа и длиннее 100!'
+
+  validates_presence_of :title, message: 'Заголовок страницы не может быть пустым!'
+  validates_uniqueness_of :title, message: 'Заголовок страницы должен быть уникальным, введенный вами уже существует в системе!'
+  validates_length_of :title, minimum: 1, maximum: 100, message: 'Заголовок страницы не может быть короче 1 символа и длиннее 100!'
+
+  validates_presence_of :DepartureId, message: 'Системный ID города не может быть пустым!'
+  validates_uniqueness_of :DepartureId, message: 'Системный ID города должен быть уникальным, введенный вами уже существует в системе!'
+  #++
+
+
   rails_admin do
     edit do
       field :name, :string do

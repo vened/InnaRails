@@ -1,7 +1,7 @@
 - if page.departures.present?
   - page.departures.each do |loc|
     li
-      = link_to loc.title.present? ? loc.title : "#{page.title} из #{loc.name}", page_path(loc.slug)
+      = link_to loc.title, page_path(loc.slug)
       -if page.children.present?
         ul
           -page.children.each do |child_page|

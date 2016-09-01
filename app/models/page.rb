@@ -24,7 +24,13 @@ class Page
 
   accepts_nested_attributes_for :departures, :allow_destroy => true
 
+  #--
+  # Валидации
+  validates_presence_of :title, message: 'Название локации не может быть пустым!'
+  validates_uniqueness_of :title, message: 'Название локации должно быть уникальным, введенное вами уже существует в системе!'
+  validates_length_of :title, minimum: 1, maximum: 100, message: 'Название локации не может быть короче 1 символа и длиннее 100!'
   validates_associated :parent, :children
+  #++
 
   rails_admin do
     list do
@@ -168,28 +174,19 @@ class Page
 
   private
   def generate_slug
-    unless self.title
+    unless self.title.present?
       self.title = self.RawName
     end
     self.slug = self.title.parameterize
-    # parent_page = self.parent
-    # if parent_page.present?
-    #   parent_page.departures.each do |departure|
-    #     self.departures.find_or_create_by({
-    #                                           name:        departure.name,
-    #                                           DepartureId: departure.DepartureId
-    #                                       })
-    #   end
-    # end
+
     self.departures.each do |departure|
       if departure.name.blank?
         departure.name = departure.RawName
       end
-      if departure.isDefault.present?
-        departure.slug = self.title.parameterize
-      else
-        departure.slug = self.title.parameterize + '-' + departure.RawName.parameterize
+      if departure.title.blank?
+        departure.title = departure.name
       end
+      departure.slug = departure.title.parameterize
     end
   end
 
