@@ -43,9 +43,9 @@ class Departure
       field :isDefault do
         label 'город отправления по умолчанию'
       end
-      field :tours do
-        label 'Туры'
-      end
+      # field :tours do
+      #   label 'Туры'
+      # end
     end
   end
 
