@@ -9,6 +9,7 @@ class Departure
   field :tours, type: Array
   field :isDefault, type: Boolean, default: false
   embedded_in :page
+  embeds_many :tours
 
   #--
   # Валидации

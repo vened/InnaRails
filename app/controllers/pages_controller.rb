@@ -27,63 +27,68 @@ class PagesController < ApplicationController
 
   def update
     # locations = ActiveSupport::JSON.decode(params[:locations])
+    if params[:locations].present?
 
-    locations = JSON.parse params[:locations]
-    p locations
-    p "==="
-    pages = []
-    locations["ArrivalList"].each do |location|
-      page = Page.find_or_create_by(ArrivalId: location["ArrivalId"], RawName: location["RawName"])
+      locations = JSON.parse params[:locations]
 
-      location["departures"].each do |departure|
+      locations["ArrivalList"].each do |location|
 
-        p "---------------------"
-        p departure
-        dep = page.departures.find_or_create_by({
-                                                    RawName:     departure["RawName"],
-                                                    DepartureId: departure["DepartureId"]
-                                                })
+        # ищем страницу
+        page = Page.where(
+            ArrivalId: location["ArrivalId"],
+            RawName:   location["RawName"]
+        )[0]
 
-        if dep.name.blank?
-          dep.update(name: departure["RawName"])
+        # если не находим, создаем новую
+        if page.blank?
+          page = Page.new(
+              title:     location["RawName"],
+              ArrivalId: location["ArrivalId"],
+              RawName:   location["RawName"])
+          page.save
         end
 
-        tours = []
-        departure["tours"].each do |tour|
-          tour = {
-              StartVoyageDate: DateTime.parse(tour["StartVoyageDate"]),
-              EndVoyageDate:   DateTime.parse(tour["EndVoyageDate"]),
-              Price:           tour["Price"],
-              Adult:           tour["SearchData"]["Adult"],
-              Since:           DateTime.parse(tour["SearchData"]["Since"]),
-              Till:            DateTime.parse(tour["SearchData"]["Till"]),
-              TicketClass:     tour["SearchData"]["TicketClass"],
-              ChildAges:       tour["SearchData"]["ChildAges"]
-          }
-          p tour
-          tours.push(tour)
-        end
+        location["departures"].each do |departure|
 
-        if departure["isDefault"] == 'true'
-          dep.update(
-              isDefault: departure["isDefault"],
-              slug:      page.title.parameterize,
-              tours:     []
-          )
-        else
-          dep.update(
-              isDefault: departure["isDefault"],
-              slug:      page.title.parameterize + '-' + departure["RawName"].parameterize,
-              tours:     []
-          )
-        end
-        dep.update(tours: tours)
+          current_departure = page.departures.where(
+              RawName:     departure["RawName"],
+              DepartureId: departure["DepartureId"]
+          )[0]
 
+          if current_departure.blank?
+            current_departure = page.departures.new(
+                title:       departure["RawName"],
+                name:        departure["RawName"],
+                RawName:     departure["RawName"],
+                DepartureId: departure["DepartureId"]
+            )
+            current_departure.save
+          end
+
+          current_departure.tours.delete_all
+
+          departure["tours"].each do |tour|
+            tour = Tour.new(
+                StartVoyageDate: DateTime.parse(tour["StartVoyageDate"]),
+                EndVoyageDate:   DateTime.parse(tour["EndVoyageDate"]),
+                Price:           tour["Price"],
+                Adult:           tour["SearchData"]["Adult"],
+                Since:           DateTime.parse(tour["SearchData"]["Since"]),
+                Till:            DateTime.parse(tour["SearchData"]["Till"]),
+                TicketClass:     tour["SearchData"]["TicketClass"],
+                ChildAges:       tour["SearchData"]["ChildAges"]
+            )
+            current_departure.tours << tour
+          end
+
+
+        end
       end
-      pages << page
-    end
 
-    render json: {}, status: :ok
+      render json: {response: 'Туры успешно импортированы'}, status: :ok
+    else
+      render json: {response: 'Ошибка при импорте, вы пытаетесь импортировать пустой объект'}, status: :bad_request
+    end
   end
 
 end
