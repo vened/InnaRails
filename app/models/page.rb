@@ -29,6 +29,10 @@ class Page
   validates_presence_of :title, message: 'Название локации не может быть пустым!'
   validates_uniqueness_of :title, message: 'Название локации должно быть уникальным, введенное вами уже существует в системе!'
   validates_length_of :title, minimum: 1, maximum: 100, message: 'Название локации не может быть короче 1 символа и длиннее 100!'
+
+  validates_presence_of :ArrivalId, message: 'Системный ID локации не может быть пустым!'
+  validates_uniqueness_of :ArrivalId, message: 'Системный ID локации должен быть уникальным, введенный вами уже существует в системе!'
+
   validates_associated :parent, :children
   #++
 
