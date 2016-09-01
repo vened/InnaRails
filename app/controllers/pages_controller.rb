@@ -57,9 +57,10 @@ class PagesController < ApplicationController
 
           if current_departure.blank?
             current_departure = page.departures.new(
-                title:       departure["RawName"],
+                title:       "Туры в " + page.title + " из " + departure["RawName"],
                 name:        departure["RawName"],
                 RawName:     departure["RawName"],
+                slug:        page.title.parameterize + "-" + departure["RawName"].parameterize,
                 DepartureId: departure["DepartureId"]
             )
             current_departure.save
