@@ -15,6 +15,7 @@ class Tour
   field :ChildAges, type: Array
 
   field :Host, type: String
+  field :HotelId, type: String
 
   field :Details, type: Object
 

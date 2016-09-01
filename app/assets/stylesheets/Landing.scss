@@ -174,7 +174,7 @@ body {
     flex-wrap:       wrap;
     align-items:     center;
 
-    margin:          0 -2px;
+    margin:          0 -2px 20px;
 }
 .LandingTour {
     display:         flex;
@@ -189,6 +189,7 @@ body {
     color:           $black-landing;
     text-decoration: none;
     transition:      all .1s ease-out;
+    cursor:          pointer;
 
     &:hover {
         text-decoration:  none;
@@ -234,7 +235,14 @@ body {
     border-left: 1px solid $gray-landing;
 }
 .LandingTours__Head {
-    margin: 0 0 15px;
+    display:         flex;
+    justify-content: space-between;
+
+    margin:          0 0 15px;
+}
+.LandingTours__HeadTitle {
+    font-size:   1rem;
+    font-weight: 600;
 }
 .LandingTours__Label {
     font-size:      .8rem;
@@ -250,9 +258,55 @@ body {
     font-size:      1rem;
     vertical-align: middle;
 }
+// LandingOffer
+.LandingOffers {
+    display:         flex;
+    justify-content: space-between;
+    flex-wrap:       wrap;
+    align-items:     center;
 
-
-
+    margin:          0 -2px;
+}
+.LandingOffer {
+    position: relative;
+    width:    calc(50% - 4px);
+    height:   249px;
+    margin:   2px;
+    color:    $white;
+    overflow: hidden;
+}
+.LandingOffer__Photo {
+    min-width:      100%;
+    vertical-align: top;
+}
+.LandingOffer__Head {
+    position: absolute;
+    left:     10px;
+    top:      15px;
+}
+.LandingOffer__Price {
+    position: absolute;
+    left:     10px;
+    bottom:   15px;
+}
+.LandingOffer__Icon {
+    margin-right: 8px;
+}
+.LandingOffer__Hotel {
+    font-size:   1.46rem;
+    font-weight: 500;
+}
+.LandingOffer__Flight {
+    font-size: 1.2rem;
+}
+.LandingOffer__Link {
+    position: absolute;
+    z-index:  2;
+    left:     0;
+    right:    0;
+    top:      0;
+    bottom:   0;
+}
 
 
 

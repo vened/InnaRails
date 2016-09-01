@@ -10,4 +10,17 @@ document.addEventListener("turbolinks:load", function () {
         animateThumb      : true,
         showThumbByDefault: true
     });
-})
+    
+    $(".LandingOffers__ListItem").hide();
+    
+    setTimeout(function () {
+        $(".LandingOffers__List .LandingOffers__ListItem:first-child").show();
+    },0)
+   
+    $(".LandingTour").on("click", function () {
+        $(".LandingOffers__ListItem").hide();
+        var id = $(this).data("id");
+        $(id).show();
+    });
+   
+});

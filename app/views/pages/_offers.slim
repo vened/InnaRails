@@ -1,0 +1,66 @@
+.LandingOffers__List
+  - departure.tours.each do |tour|
+    .LandingOffers__ListItem id="#{tour.id}"
+      .LandingTours__Head
+        .LandingTours__HeadTitle
+          |Лучшие предложения на&nbsp;
+          - month_1 = l tour[:StartVoyageDate], :format => :custom_month
+          - month_2 = l tour[:EndVoyageDate], :format => :custom_month
+          - if month_1 == month_2
+            = l tour[:StartVoyageDate], :format => :custom_short
+            | -
+            = l tour[:EndVoyageDate], :format => :custom
+          - else
+            = l tour[:StartVoyageDate], :format => :custom
+            | -
+            = l tour[:EndVoyageDate], :format => :custom
+        .LandingTours__Label
+          | Цена включает:
+          = image_tag "svg-icons/icon-flight", class: "LandingTours__LabelImg"
+          .LandingTours__LabelPlus +
+          = image_tag "svg-icons/icon-hotel", class: "LandingTours__LabelImg"
+          .LandingTours__LabelPlus +
+          = image_tag "svg-icons/icon-transfer", class: "LandingTours__LabelImg"
+          .LandingTours__LabelPlus +
+          = image_tag "svg-icons/icon-strah", class: "LandingTours__LabelImg"
+
+      .LandingOffers
+        - tour.Details[0..3].each do |offer|
+          .LandingOffer
+            = image_tag offer["PhotoUrl"].present? ? offer["PhotoUrl"] : "no-photo.jpg", class: "LandingOffer__Photo"
+            .LandingOffer__Head
+              .LandingOffer__Hotel
+                = image_tag "svg-icons/icon-hotel-white", class: "LandingOffer__Icon"
+                = offer["HotelName"]
+              .LandingOffer__Flight
+                = image_tag "svg-icons/icon-flight-white", class: "LandingOffer__Icon"
+                = offer["Aircompany"]
+            .LandingTour__price.LandingOffer__Price
+              span.LandingTour__pricelabel от
+              span.LandingTour__priceCurrency= number_to_currency(offer[:Price], locale: :ru, precision: 0, unit: "")
+              span.LandingTour__priceUnit руб.
+            /https://inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
+            /:DepartureId-:ArrivalId-:StartVoyageDate-:EndVoyageDate-:TicketClass-:Adult-:Children?-:HotelId-:TicketId-:TicketBackId-:ProviderId
+            - url = ["#{tour["Host"]}/#/packages/search/",
+                    departure.DepartureId,
+                    "-",
+                    @page["ArrivalId"],
+                    "-",
+                    "#{l tour[:StartVoyageDate], :format => :inna}",
+                    "-",
+                    "#{l tour[:EndVoyageDate], :format => :inna}",
+                    "-",
+                    tour[:TicketClass],
+                    "-",
+                    tour[:Adult],
+                    "-",
+                    "-",
+                    offer[:HotelId],
+                    "-",
+                    offer[:AviaIdTo],
+                    "-",
+                    offer[:AviaIdBack],
+                    "-",
+                    offer[:Provider],
+            ]
+            a.LandingOffer__Link href="#{url.join()}" target="_blank"
