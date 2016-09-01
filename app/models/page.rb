@@ -13,6 +13,7 @@ class Page
   field :slug, type: String
   field :image, type: String
   field :visa, type: Boolean, default: true
+  field :pub, type: Boolean, default: false
 
   field :meta_title, type: String
   field :meta_keyword, type: String
@@ -70,6 +71,9 @@ class Page
       end
       field :visa do
         label 'Нужна виза'
+      end
+      field :pub do
+        label 'Опубликовать?'
       end
       field :image, :carrierwave do
         label 'Фото в шапку страницы'

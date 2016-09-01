@@ -44,7 +44,9 @@ class PagesController < ApplicationController
           page = Page.new(
               title:     location["RawName"],
               ArrivalId: location["ArrivalId"],
-              RawName:   location["RawName"])
+              RawName:   location["RawName"],
+              pub:       false
+          )
           page.save
         end
 
