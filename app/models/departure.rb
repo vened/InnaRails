@@ -10,7 +10,7 @@ class Departure
   field :isDefault, type: Boolean, default: false
   embedded_in :page
   embeds_many :tours
-
+  accepts_nested_attributes_for :tours, :allow_destroy => true
   #--
   # Валидации
   validates_presence_of :name, message: 'Название города не может быть пустым!'
@@ -42,6 +42,9 @@ class Departure
       end
       field :isDefault do
         label 'город отправления по умолчанию'
+      end
+      field :tours do
+        label 'Туры'
       end
     end
   end

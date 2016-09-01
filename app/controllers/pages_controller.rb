@@ -79,7 +79,9 @@ class PagesController < ApplicationController
                 Since:           DateTime.parse(tour["SearchData"]["Since"]),
                 Till:            DateTime.parse(tour["SearchData"]["Till"]),
                 TicketClass:     tour["SearchData"]["TicketClass"],
-                ChildAges:       tour["SearchData"]["ChildAges"]
+                ChildAges:       tour["SearchData"]["ChildAges"],
+                Details:         tour["Details"],
+                Host:            locations["Host"]
             )
             current_departure.tours << tour
           end

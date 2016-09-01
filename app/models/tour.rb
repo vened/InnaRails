@@ -16,6 +16,20 @@ class Tour
 
   field :Host, type: String
 
+  field :Details, type: Object
+
 
   embedded_in :departure
+
+
+  rails_admin do
+    edit do
+      field :StartVoyageDate, :date do
+        label 'Дата вылета'
+      end
+    end
+  end
+
+
+
 end
