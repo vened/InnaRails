@@ -49,7 +49,7 @@ class Page
         label 'Слоган 1'
       end
       field :slogan_2, :string do
-        label 'Слоган 1'
+        label 'Слоган 2'
       end
       field :ArrivalId, :string do
         label 'Системный ID локации'
