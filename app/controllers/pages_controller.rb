@@ -25,6 +25,19 @@ class PagesController < ApplicationController
     # SearchJob.set(wait: 1.second).perform_later(@page.slug)
   end
 
+  def delete_tours
+    # ищем страницу
+    page = Page.where(ArrivalId: params["ArrivalId"])[0]
+
+    departure = page.departures.where(
+        DepartureId: params["DepartureId"]
+    )[0]
+
+    departure.tours.delete_all
+
+    render json: {response: 'Туры успешно удалены'}, status: :ok
+  end
+
   def update
     # locations = ActiveSupport::JSON.decode(params[:locations])
     if params[:locations].present?
@@ -35,8 +48,7 @@ class PagesController < ApplicationController
 
         # ищем страницу
         page = Page.where(
-            ArrivalId: location["ArrivalId"],
-            RawName:   location["RawName"]
+            ArrivalId: location["ArrivalId"]
         )[0]
 
         # если не находим, создаем новую
@@ -53,7 +65,6 @@ class PagesController < ApplicationController
         location["departures"].each do |departure|
 
           current_departure = page.departures.where(
-              RawName:     departure["RawName"],
               DepartureId: departure["DepartureId"]
           )[0]
 
@@ -68,7 +79,7 @@ class PagesController < ApplicationController
             current_departure.save
           end
 
-          current_departure.tours.delete_all
+          # current_departure.tours.delete_all
 
           departure["tours"].each do |tour|
             tour = Tour.new(
