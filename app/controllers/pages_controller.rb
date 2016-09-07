@@ -29,11 +29,15 @@ class PagesController < ApplicationController
     # ищем страницу
     page = Page.where(ArrivalId: params["ArrivalId"])[0]
 
-    departure = page.departures.where(
-        DepartureId: params["DepartureId"]
-    )[0]
+    if page.present?
+      departure = page.departures.where(
+          DepartureId: params["DepartureId"]
+      )[0]
 
-    departure.tours.delete_all
+      if departure.present?
+        departure.tours.delete_all
+      end
+    end
 
     render json: {response: 'Туры успешно удалены'}, status: :ok
   end
