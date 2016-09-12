@@ -1,10 +1,9 @@
 //= require lightgallery.js/lightgallery.min
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-// require_tree .
+// require turbolinks
 
-document.addEventListener("turbolinks:load", function () {
+// document.addEventListener("turbolinks:load", function () {
     lightGallery(document.querySelector('.Landing__ContentImages'), {
         thumbnail         : true,
         animateThumb      : true,
@@ -22,5 +21,13 @@ document.addEventListener("turbolinks:load", function () {
         var id = $(this).data("id");
         $(id).show();
     });
-   
-});
+    
+    
+    // $(".LandingNavMenu__Item").on("click", function (e) {
+    //     e.preventDefault();
+    //     console.log(e.currentTarget.hash)
+    //     Turbolinks.visit(e.currentTarget.hash, { action: "restore" })
+    // });
+    
+    
+// });

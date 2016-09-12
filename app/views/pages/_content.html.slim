@@ -1,6 +1,10 @@
 .Landing__ContentHead
-  h2.Landing__ContentTitle= content["location_name"]
-  - unless content["visa"].present?
+  -if child.blank?
+    h2.Landing__ContentTitle= content["location_name"]
+  -else
+    h2.Landing__ContentTitle=link_to content["location_name"], content["url"], target: "_blank"
+
+  -if content["visa"].blank? && child.blank?
     .NoVisa
       .NoVisa__Icon
       .NoVisa__Text Виза не нужна
