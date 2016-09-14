@@ -50,63 +50,60 @@ class PagesController < ApplicationController
     # locations = ActiveSupport::JSON.decode(params[:locations])
     if params[:locations].present?
 
-      locations = JSON.parse params[:locations]
+      location = JSON.parse params[:locations]
 
-      locations["ArrivalList"].each do |location|
+      # ищем страницу
+      page     = Page.where(
+          ArrivalId: location["ArrivalId"]
+      )[0]
 
-        # ищем страницу
-        page = Page.where(
-            ArrivalId: location["ArrivalId"]
+      # если не находим, создаем новую
+      if page.blank?
+        page = Page.new(
+            title:     location["RawName"],
+            ArrivalId: location["ArrivalId"],
+            RawName:   location["RawName"],
+            pub:       false
+        )
+        page.save
+      end
+
+      location["departures"].each do |departure|
+
+        current_departure = page.departures.where(
+            DepartureId: departure["DepartureId"]
         )[0]
 
-        # если не находим, создаем новую
-        if page.blank?
-          page = Page.new(
-              title:     location["RawName"],
-              ArrivalId: location["ArrivalId"],
-              RawName:   location["RawName"],
-              pub:       false
-          )
-          page.save
-        end
-
-        location["departures"].each do |departure|
-
-          current_departure = page.departures.where(
+        if current_departure.blank?
+          current_departure = page.departures.new(
+              title:       "Туры в " + page.title + " из " + departure["RawName"],
+              name:        departure["RawName"],
+              RawName:     departure["RawName"],
+              slug:        page.title.parameterize + "-" + departure["RawName"].parameterize,
               DepartureId: departure["DepartureId"]
-          )[0]
-
-          if current_departure.blank?
-            current_departure = page.departures.new(
-                title:       "Туры в " + page.title + " из " + departure["RawName"],
-                name:        departure["RawName"],
-                RawName:     departure["RawName"],
-                slug:        page.title.parameterize + "-" + departure["RawName"].parameterize,
-                DepartureId: departure["DepartureId"]
-            )
-            current_departure.save
-          end
-
-          # current_departure.tours.delete_all
-
-          departure["tours"].each do |tour|
-            tour = Tour.new(
-                StartVoyageDate: DateTime.parse(tour["StartVoyageDate"]),
-                EndVoyageDate:   DateTime.parse(tour["EndVoyageDate"]),
-                Price:           tour["Price"],
-                Adult:           tour["SearchData"]["Adult"],
-                Since:           DateTime.parse(tour["SearchData"]["Since"]),
-                Till:            DateTime.parse(tour["SearchData"]["Till"]),
-                TicketClass:     tour["SearchData"]["TicketClass"],
-                ChildAges:       tour["SearchData"]["ChildAges"],
-                Details:         tour["Details"],
-                Host:            locations["Host"]
-            )
-            current_departure.tours << tour
-          end
-
-
+          )
+          current_departure.save
         end
+
+        # current_departure.tours.delete_all
+
+        departure["tours"].each do |tour|
+          tour = Tour.new(
+              StartVoyageDate: DateTime.parse(tour["StartVoyageDate"]),
+              EndVoyageDate:   DateTime.parse(tour["EndVoyageDate"]),
+              Price:           tour["Price"],
+              Adult:           tour["SearchData"]["Adult"],
+              Since:           DateTime.parse(tour["SearchData"]["Since"]),
+              Till:            DateTime.parse(tour["SearchData"]["Till"]),
+              TicketClass:     tour["SearchData"]["TicketClass"],
+              ChildAges:       tour["SearchData"]["ChildAges"],
+              Details:         tour["Details"],
+              Host:            location["Host"]
+          )
+          current_departure.tours << tour
+        end
+
+
       end
 
       render json: {response: 'Туры успешно импортированы'}, status: :ok
