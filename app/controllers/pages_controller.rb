@@ -36,6 +36,10 @@ class PagesController < ApplicationController
 
       if departure.present?
         departure.tours.delete_all
+      else
+        page.departures.each do |departure|
+          departure.tours.delete_all
+        end
       end
     end
 
