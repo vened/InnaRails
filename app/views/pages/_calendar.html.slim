@@ -4,7 +4,7 @@
       .LandingTitleH2__inset= departure["calendar_title"]
 
     .LandingTours
-      - departure.tours[0..3].each do |tour|
+      - departure.tours[0..5].each do |tour|
           .LandingTour data-id="##{tour.id}"
             .LandingTour__left
               .LandingTour__title Авиа + Отель
