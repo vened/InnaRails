@@ -26,4 +26,4 @@
                 span.LandingTour__priceCurrency= number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "")
                 span.LandingTour__priceUnit руб.
 
-    = render partial: "offers", locals: {departure: departure}
+    = render partial: "offers", locals: {departure: departure, page: page}
