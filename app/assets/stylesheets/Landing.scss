@@ -265,7 +265,7 @@ body {
     flex-wrap:       wrap;
     align-items:     center;
 
-    margin:          0 -2px;
+    margin:          0 -2px 25px;
 }
 .LandingOffer {
     position: relative;
@@ -307,8 +307,23 @@ body {
     top:      0;
     bottom:   0;
 }
-
-
+.LandingOffer_Foot {
+    text-align: center;
+}
+.LandingOffer_ToSearch {
+    display:       inline-block;
+    margin:        0 0 15px;
+    padding:       10px 16px;
+    background:    #EFF2F5;
+    border:        1px solid #C9D2DB;
+    border-radius: 3px;
+    font-size:     1rem;
+    color:         #313C48;
+}
+.LandingOffer_More {
+    font-size: 1.05rem;
+    color:     #778695;
+}
 
 
 

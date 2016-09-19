@@ -20,8 +20,8 @@
             = image_tag "svg-icons/icon-flight", class: "LandingTours__LabelImg"
             .LandingTours__LabelPlus +
             = image_tag "svg-icons/icon-hotel", class: "LandingTours__LabelImg"
-            .LandingTours__LabelPlus +
-            = image_tag "svg-icons/icon-transfer", class: "LandingTours__LabelImg"
+            /.LandingTours__LabelPlus +
+            /= image_tag "svg-icons/icon-transfer", class: "LandingTours__LabelImg"
             .LandingTours__LabelPlus +
             = image_tag "svg-icons/icon-strah", class: "LandingTours__LabelImg"
 
@@ -65,3 +65,29 @@
                       offer[:Provider],
               ]
               a.LandingOffer__Link href="#{url.join()}" target="_blank"
+
+
+        .LandingOffer_Foot
+          -searchUrl = ["#{tour["Host"]}/#/packages/search/",
+                        departure.DepartureId,
+                        "-",
+                        page["ArrivalId"],
+                        "-",
+                        "#{l tour[:StartVoyageDate], :format => :inna}",
+                        "-",
+                        "#{l tour[:EndVoyageDate], :format => :inna}",
+                        "-",
+                        tour[:TicketClass],
+                        "-",
+                        tour[:Adult],
+                        "-",
+                ]
+          a.LandingOffer_ToSearch href="#{searchUrl.join()}" target="_blank" Показать все варианты туров
+          .LandingOffer_More
+            |Также можно купить отдельно
+            |&nbsp;
+            a href="https://inna.ru/#/avia/" target="_blank" авиабилет
+            |&nbsp;
+            |или
+            |&nbsp;
+            a href="https://inna.ru/#/hotels/" target="_blank" отель
