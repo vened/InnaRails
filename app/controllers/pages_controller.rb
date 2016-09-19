@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   layout 'layouts/landing'
 
   def index
-    @pages = Page.roots.order_by({"u_at" => -1})
+    @pages = Page.roots.where(pub: true).order_by({"u_at" => -1})
     # render :json => @pages
   end
 
