@@ -4,6 +4,11 @@
   -else
     h2.Landing__ContentTitle=link_to content["location_name"], content["url"], target: "_blank"
 
+  -if child.blank?
+    script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"
+    script src="//yastatic.net/share2/share.js"
+    .ya-share2 data-counter="" data-services="vkontakte,facebook,odnoklassniki,gplus"
+
   -if content["visa"].blank? && child.blank?
     .NoVisa
       .NoVisa__Icon

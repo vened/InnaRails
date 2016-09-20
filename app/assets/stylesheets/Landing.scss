@@ -71,6 +71,7 @@ body {
     margin:          0 0 15px;
 }
 .Landing__ContentTitle {
+    flex: 2;
     margin:      0;
     font-size:   22px;
     font-weight: normal;
@@ -128,6 +129,7 @@ body {
 .NoVisa {
     display:       flex;
 
+    margin: 0 0 0 30px;
     padding:       5px;
     border:        1px solid $green;
     border-radius: $base-border-radius;
