@@ -7,6 +7,15 @@
     <%= stylesheet_link_tag 'application_landing', media: 'all' %>
 </head>
 <body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WKRVG5"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WKRVG5');</script>
+<!-- End Google Tag Manager -->
 <%= yield %>
 <%= render 'shared/footer' %>
 <%= javascript_include_tag 'landing' %>
@@ -25,6 +34,16 @@
         }
     })();
     carrotquest.connect('5637-850bc821e4433fdcbc04dbedab6');
+</script>
+<script type="text/javascript">
+    var dataLayerObj = {
+        'event': 'UM.PageView',
+        'Data': Object.assign({}, thisData, this.TrackData)
+    };
+    if (window.dataLayer) {
+        window.dataLayer.push(dataLayerObj);
+    }
+    console.table(dataLayerObj);
 </script>
 <!-- CarrotQuest END -->
 </body>

@@ -7,6 +7,20 @@
                 page_url:   page_url(@page["url"]),
                 photo: @page["photo"]}
 
+javascript:
+  var dataLayerObj = {
+    'event': 'UM.PageView',
+    'Data': {
+      'PageType'      : 'ContentCountry1',
+      'CityFrom'      : "#{@page["departure"]["name"]}",
+      'CityTo'        : "#{@page["location_name"]}"
+    }
+  };
+  if (window.dataLayer) {
+    window.dataLayer.push(dataLayerObj);
+  }
+  console.table(dataLayerObj);
+
 .Landing
   = render 'head'
   = render 'nav'
