@@ -76,8 +76,7 @@ $(".LandingOffer_ToSearch").on("click", function () {
     console.table(dataLayerObj);
 });
 
-$(".LandingOffer__Link").on("click", function (e) {
-    e.preventDefault()
+$(".LandingOffer__Link").on("click", function () {
     var dataLayerObj = {
         'event': 'UM.Event',
         'Data' : {
