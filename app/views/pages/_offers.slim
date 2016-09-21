@@ -64,7 +64,7 @@
                       "-",
                       offer[:Provider],
               ]
-              a.LandingOffer__Link href="#{url.join()}" target="_blank"
+              a.LandingOffer__Link href="#{url.join()}" target="_blank" data-label="#{@page["location_name"]}" data-content="#{offer["HotelName"]}, #{offer["Aircompany"]}" data-price="#{number_to_currency(offer[:Price], locale: :ru, precision: 0, unit: "")}"
 
 
         .LandingOffer_Foot
@@ -82,7 +82,7 @@
                         tour[:Adult],
                         "-",
                 ]
-          a.LandingOffer_ToSearch href="#{searchUrl.join()}" target="_blank" Показать все варианты туров
+          a.LandingOffer_ToSearch href="#{searchUrl.join()}" target="_blank" data-content="#{@page["location_name"]}" Показать все варианты туров
           .LandingOffer_More
             |Также можно купить отдельно
             |&nbsp;

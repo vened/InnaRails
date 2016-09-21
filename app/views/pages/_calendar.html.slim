@@ -5,20 +5,25 @@
 
     .LandingTours
       - departure.tours[0..5].each do |tour|
-          .LandingTour data-id="##{tour.id}"
+        - month_1 = l tour[:StartVoyageDate], :format => :custom_month
+        - month_2 = l tour[:EndVoyageDate], :format => :custom_month
+        - if month_1 == month_2
+          -month_1_format = l tour[:StartVoyageDate], :format => :custom_short
+          -month_2_format = l tour[:EndVoyageDate], :format => :custom
+        - else
+          -month_1_format = l tour[:StartVoyageDate], :format => :custom
+          -month_2_format = l tour[:EndVoyageDate], :format => :custom
+        .LandingTour[
+            data-id="##{tour.id}"
+            data-title="Авиа + Отель, На двоих, #{month_1_format} - #{month_2_format}, от #{number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "руб.")}"
+            data-content="#{departure_name}"
+            ]
             .LandingTour__left
               .LandingTour__title Авиа + Отель
               .LandingTour__data
-                - month_1 = l tour[:StartVoyageDate], :format => :custom_month
-                - month_2 = l tour[:EndVoyageDate], :format => :custom_month
-                - if month_1 == month_2
-                  = l tour[:StartVoyageDate], :format => :custom_short
-                  | -
-                  = l tour[:EndVoyageDate], :format => :custom
-                - else
-                  = l tour[:StartVoyageDate], :format => :custom
-                  | -
-                  = l tour[:EndVoyageDate], :format => :custom
+                = month_1_format
+                | -
+                = month_2_format
             .LandingTour__right
               .LandingTour__count На двоих
               .LandingTour__price
