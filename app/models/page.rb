@@ -81,7 +81,7 @@ class Page
       end
       # field :bg, :color нет прозрачности
       field :bg do
-        label 'Тонирование фото в шапке и предложений'
+        label 'Тонирование фото в шапке и предложениях'
       end
       field :location_text, :ck_editor do
         label 'Описание'
