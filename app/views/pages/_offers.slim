@@ -9,11 +9,11 @@
             - month_2 = l tour[:EndVoyageDate], :format => :custom_month
             - if month_1 == month_2
               = l tour[:StartVoyageDate], :format => :custom_short
-              | -
+              |&nbsp;-&nbsp;
               = l tour[:EndVoyageDate], :format => :custom
             - else
               = l tour[:StartVoyageDate], :format => :custom
-              | -
+              |&nbsp;-&nbsp;
               = l tour[:EndVoyageDate], :format => :custom
           .LandingTours__Label
             | Цена включает:

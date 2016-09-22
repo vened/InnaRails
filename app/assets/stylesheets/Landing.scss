@@ -230,10 +230,12 @@ body {
     font-weight: 400;
 }
 .LandingTour__left {
+    width: 250px;
     padding: 8px;
 }
 .LandingTour__right {
-    padding:     8px 8px 8px 35px;
+    width: 200px;
+    padding:     8px 8px 8px 20px;
     border-left: 1px solid $gray-landing;
 }
 .LandingTours__Head {
