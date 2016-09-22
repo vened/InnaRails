@@ -12,6 +12,7 @@ class Page
   field :location_text, type: String
   field :slug, type: String
   field :image, type: String
+  field :bg, type: String, default: 'rgba(0,0,0,.3)'
   field :visa, type: Boolean, default: true
   field :pub, type: Boolean, default: false
 
@@ -78,6 +79,10 @@ class Page
       field :image, :carrierwave do
         label 'Фото в шапку страницы'
       end
+      # field :bg, :color нет прозрачности
+      field :bg do
+        label 'Тонирование фото в шапке и предложений'
+      end
       field :location_text, :ck_editor do
         label 'Описание'
       end
@@ -137,6 +142,7 @@ class Page
         'url'              => url,
         'photo'            => current_page.image.large.url.present? ? current_page.image.large.url : '',
         'photos'           => current_page.photos,
+        'bg'               => current_page.bg,
 
         'visa'             => current_page.visa,
 

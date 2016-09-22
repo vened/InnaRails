@@ -29,6 +29,7 @@
           - tour.Details[0..3].each do |offer|
             .LandingOffer
               = image_tag offer["PhotoUrl"].present? ? offer["PhotoUrl"] : "no-photo.jpg", class: "LandingOffer__Photo"
+              .LandingOffer__Photo-bg style="background-color:#{@page["bg"]}"
               .LandingOffer__Head
                 .LandingOffer__Hotel
                   = image_tag "svg-icons/icon-hotel-white", class: "LandingOffer__Icon"

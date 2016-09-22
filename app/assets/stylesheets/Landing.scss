@@ -278,16 +278,26 @@ body {
     overflow: hidden;
 }
 .LandingOffer__Photo {
-    min-width:      100%;
+    width:      100%;
     vertical-align: top;
+}
+.LandingOffer__Photo-bg{
+    position: absolute;
+    top:      0;
+    left:     0;
+    right:    0;
+    bottom:   0;
+    z-index:  1;
 }
 .LandingOffer__Head {
     position: absolute;
+    z-index:  2;
     left:     10px;
     top:      15px;
 }
 .LandingOffer__Price {
     position: absolute;
+    z-index:  2;
     left:     10px;
     bottom:   15px;
 }
@@ -303,7 +313,7 @@ body {
 }
 .LandingOffer__Link {
     position: absolute;
-    z-index:  2;
+    z-index:  3;
     left:     0;
     right:    0;
     top:      0;
