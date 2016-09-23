@@ -1,7 +1,13 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  # config/routes.rb
+  authenticate :admin do
+    mount Sidekiq::Web => '/sidekiq'
+  end
   # get 'pages/index'
   #
   # get 'pages/show'

@@ -33,7 +33,7 @@ gem 'breadcrumbs_on_rails', github: 'weppos/breadcrumbs_on_rails'
 gem 'puma', '~> 3.0'
 gem 'sidekiq'
 gem 'listen', '~> 3.0.5'
-
+gem 'sinatra', github: 'sinatra'
 ###### localisation ######
 gem 'rails-i18n', '~> 5.0.0'
 gem 'devise-i18n'
