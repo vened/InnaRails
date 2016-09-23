@@ -1,0 +1,33 @@
+- if departure.present?
+  - if departure.offers.present?
+    h2.LandingTitleH2
+      .LandingTitleH2__inset= departure["calendar_title"]
+
+    .LandingTours
+      - departure.offers.each do |tour|
+        - month_1 = l tour[:StartVoyageDate], :format => :custom_month
+        - month_2 = l tour[:EndVoyageDate], :format => :custom_month
+        - if month_1 == month_2
+          -month_1_format = l tour[:StartVoyageDate], :format => :custom_short
+          -month_2_format = l tour[:EndVoyageDate], :format => :custom
+        - else
+          -month_1_format = l tour[:StartVoyageDate], :format => :custom
+          -month_2_format = l tour[:EndVoyageDate], :format => :custom
+        a.LandingTour[
+          data-title="Авиа + Отель, На двоих, #{month_1_format} - #{month_2_format}, от #{number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "руб.")}"
+          data-content="#{departure_name}"
+          href="#{tour[:SearchUrl]}"
+          target="_blank"
+          ]
+          .LandingTour__left
+            .LandingTour__title Авиа + Отель
+            .LandingTour__data
+              = month_1_format
+              |&nbsp;-&nbsp;
+              = month_2_format
+          .LandingTour__right
+            .LandingTour__count На двоих
+            .LandingTour__price
+              span.LandingTour__pricelabel от
+              span.LandingTour__priceCurrency= number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "")
+              span.LandingTour__priceUnit руб.

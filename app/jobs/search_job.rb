@@ -17,12 +17,13 @@ class SearchJob < ApplicationJob
     # "http://api.pages.inna.ru/api/v1/Packages/SearchHotels?AddFilter=true&Adult=2&ArrivalId=18820&DepartureId=6733&EndVoyageDate=2016-10-04&StartVoyageDate=2016-10-01&TicketClass=0"
     # "http://pages.inna.ru/api/v1"
     # http://test.inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
-    api_url = "http://api.inna.ru/api/v1/"
+    api_url = "https://api.inna.ru/api/v1/"
+    url = "https://inna.ru/"
 
     page   = Page.find_by(slug: slug)
 
-    months = [2]
-    # months = [2, 3]
+    # months = [2]
+    months = [2, 3, 4, 5, 6, 7]
 
     page.departures.each do |departure|
       offers = []
@@ -45,9 +46,10 @@ class SearchJob < ApplicationJob
 
         if res_data.present?
 
+          #:DepartureId-:ArrivalId-:StartVoyageDate-:EndVoyageDate-:TicketClass-:Adult-:Children?-:HotelId-:TicketId-:TicketBackId-:ProviderId
           searchUrl = [
-              api_url,
-              "#/packages/search/",
+              url,
+              "#/packages/details/",
               departure.DepartureId,
               "-",
               page.ArrivalId,
@@ -55,7 +57,14 @@ class SearchJob < ApplicationJob
               startVoyageDate.strftime('%d.%m.%Y'),
               "-",
               endVoyageDate.strftime('%d.%m.%Y'),
-              "-0-2-"
+              "-0-2--",
+              res_data['RecommendedPair']['Hotel']['HotelId'],
+              "-",
+              res_data['RecommendedPair']['AviaInfo']['VariantId1'],
+              "-",
+              res_data['RecommendedPair']['AviaInfo']['VariantId2'],
+              "-",
+              res_data['RecommendedPair']['Hotel']['ProviderId'],
           ].join
 
           tour = {

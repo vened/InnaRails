@@ -31,10 +31,12 @@ javascript:
 
       = render partial: "content", locals: {content: @page, child: false}
 
-      = render partial: "calendar", locals: {departure_name: @page["location_name"], departure: @page["departure"], page: @page}
+      = render partial: "tours", locals: {departure_name: @page["location_name"], departure: @page["departure"], page: @page}
+
+      /= render partial: "calendar", locals: {departure_name: @page["location_name"], departure: @page["departure"], page: @page}
 
 
-    - @page["childrens"].each do |child|
+    /- @page["childrens"].each do |child|
       - departure_child = @page["departure"].present? ? child.departures.where(DepartureId: @page["departure"].DepartureId)[0] : nil
       - if departure_child.present?
         - child_page = Page.get_data(departure_child.slug)

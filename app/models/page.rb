@@ -101,8 +101,10 @@ class Page
 
   def start_search
     # if self.pricing.present?
-      SearchJob.set(wait: 2.second).perform_later(self.slug)
-      # self.update(pricing: false)
+    #   SearchJob.set(wait: 2.second).perform_later(self.slug)
+    #   Sidekiq::Cron::Job.destroy_all!
+    Sidekiq::Cron::Job.create(name: "SearchJob #{self.title} - обновление каждые 5 минут", cron: "*/1 * * * *", class: "SearchJob", args: self.slug)
+    # self.update(pricing: false)
     # end
     # SearchJob.perform_later(self.slug)
   end

@@ -32,6 +32,7 @@ gem 'breadcrumbs_on_rails', github: 'weppos/breadcrumbs_on_rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'sidekiq'
+gem "sidekiq-cron"
 gem 'listen', '~> 3.0.5'
 gem 'sinatra', github: 'sinatra'
 ###### localisation ######
