@@ -41,23 +41,19 @@ namespace :deploy do
   end
 end
 
-# For capistrano 3
+
 namespace :sidekiq do
-  task :quiet do
-    on roles(:app) do
-      # puts capture("pgrep -f 'workers' | xargs kill -USR1")
-      execute :sudo, :stop, :workers
-      execute :sudo, :start, :workers
-    end
-  end
   task :restart do
     on roles(:app) do
-      execute :sudo, :stop, :workers
-      execute :sudo, :start, :workers
-      # execute :sudo, :restart, :workers
+      execute :sudo, :service, :sidekiq, :restart, "index=0"
     end
   end
 end
+
+# after 'deploy:starting', 'sidekiq:quiet'
+after 'deploy:reverted', 'sidekiq:restart'
+after 'deploy:published', 'sidekiq:restart'
+
 
 # after 'deploy:starting', 'sidekiq:quiet'
 # after 'deploy:reverted', 'sidekiq:restart'
