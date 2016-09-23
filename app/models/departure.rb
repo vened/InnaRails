@@ -7,10 +7,17 @@ class Departure
   field :DepartureId, type: String, default: 6733
   field :slug, type: String
   field :tours, type: Array
+  field :offers, type: Array
   field :isDefault, type: Boolean, default: false
+
+  # field :offer_title, type: String
+  # field :offer_photo, type: String
+
   embedded_in :page
   embeds_many :tours
   accepts_nested_attributes_for :tours, :allow_destroy => true
+
+  mount_uploader :offer_photo, PhotoUploader
   #--
   # Валидации
   validates_presence_of :name, message: 'Название города не может быть пустым!'

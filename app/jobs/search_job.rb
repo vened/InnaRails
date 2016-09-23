@@ -13,23 +13,25 @@ class SearchJob < ApplicationJob
     # StartVoyageDate:2016-09-01
     # TicketClass:0
     # http://test.inna.ru/api/v1/Packages/SearchHotels?AddFilter=true&Adult=2&ArrivalId=18820&DepartureId=6733&EndVoyageDate=2016-09-04&StartVoyageDate=2016-09-01&TicketClass=0
-    # http://inna.ru/api/v1/Packages/SearchHotels?AddFilter=true&Adult=2&ArrivalId=18820&DepartureId=6733&EndVoyageDate=2016-09-04&StartVoyageDate=2016-09-01&TicketClass=0
+    # http://inna.ru/api/v1/Packages/SearchHotels?AddFilter=true&Adult=2&ArrivalId=18820&DepartureId=6733&EndVoyageDate=2016-11-04&StartVoyageDate=2016-11-01&TicketClass=0
+    # "http://api.pages.inna.ru/api/v1/Packages/SearchHotels?AddFilter=true&Adult=2&ArrivalId=18820&DepartureId=6733&EndVoyageDate=2016-10-04&StartVoyageDate=2016-10-01&TicketClass=0"
+    # "http://pages.inna.ru/api/v1"
     # http://test.inna.ru/#/packages/search/6733-2353-12.09.2016-13.09.2016-0-2-
-    api_url = "http://api.test.inna.ru/"
+    api_url = "http://api.inna.ru/api/v1/"
 
     page   = Page.find_by(slug: slug)
 
-    months = [2, 3, 4, 5, 6, 7, 8, 9]
+    months = [2]
     # months = [2, 3]
 
     page.departures.each do |departure|
-      tours = []
+      offers = []
       months.each do |month|
         startVoyageDate = Date.current.weeks_since(month)
         endVoyageDate   = Date.current.weeks_since(month + 1)
         url_array       = [
             api_url,
-            "api/v1/Packages/SearchHotels?",
+            "Packages/SearchHotels?",
             "AddFilter=true&",
             "Adult=2&",
             "ArrivalId=#{page.ArrivalId}&",
@@ -64,16 +66,16 @@ class SearchJob < ApplicationJob
               # Stars:           res_data[:RecommendedPair][:Hotel][:Stars]
           }
           p tour
-          tours.push(tour)
+          offers.push(tour)
         end
 
       end
-      departure.update(tours: [])
-      departure.update(tours: tours)
+      departure.update(offers: [])
+      departure.update(offers: offers)
     end
 
     # page.update(slogan_1: DateTime.current)
-    # page.update(tours: json)
+    # page.update(offers: json)
     # Do something later
   end
 end

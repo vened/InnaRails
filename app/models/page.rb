@@ -96,13 +96,13 @@ class Page
     slug
   end
 
-  before_create :generate_slug
-  before_update :generate_slug
+  before_create :generate_slug, :start_search
+  before_update :generate_slug, :start_search
 
   def start_search
     # if self.pricing.present?
-    #   SearchJob.set(wait: 2.second).perform_later(self.slug)
-    #   self.update(pricing: false)
+      SearchJob.set(wait: 2.second).perform_later(self.slug)
+      # self.update(pricing: false)
     # end
     # SearchJob.perform_later(self.slug)
   end
