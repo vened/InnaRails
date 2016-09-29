@@ -13,10 +13,14 @@
         - else
           -month_1_format = l tour[:StartVoyageDate], :format => :custom
           -month_2_format = l tour[:EndVoyageDate], :format => :custom
+
+        - linkOffer = tour[:SearchUrl]
+        /- linkOffer = offer_path(page['url'], tour[:SearchDate])
+
         a.LandingTour[
           data-title="Авиа + Отель, На двоих, #{month_1_format} - #{month_2_format}, от #{number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "руб.")}"
           data-content="#{departure_name}"
-          href="#{tour[:SearchUrl]}"
+          href="#{linkOffer}"
           target="_blank"
           ]
           .LandingTour__left

@@ -15,6 +15,7 @@ class Departure
 
   embedded_in :page
   embeds_many :tours
+  embeds_many :offers
   accepts_nested_attributes_for :tours, :allow_destroy => true
 
   mount_uploader :offer_photo, PhotoUploader

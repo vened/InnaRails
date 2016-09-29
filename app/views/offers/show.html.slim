@@ -1,0 +1,23 @@
+.InHeaderOffer
+  = render 'pages/header'
+
+/-startVoyageDate = Date.current.weeks_since(2)
+/= startVoyageDate
+br
+/= startVoyageDate.strftime('%F')
+br
+/=startVoyageDate.strftime('%d.%m.%Y').to_s
+br
+br
+-months = [2, 3]
+-months.each do |month|
+  - date = Date.current.weeks_since(month)
+  div= date
+  div= date.beginning_of_week(:saturday)
+  div= date.end_of_week
+  hr
+/= debug @offer
+br
+br
+br
+br
