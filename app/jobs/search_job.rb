@@ -22,11 +22,12 @@ class SearchJob < ApplicationJob
 
     page = Page.find_by(slug: slug)
 
-    months = [2]
-    # months = [2, 3, 4, 5, 6, 7]
+    # months = [2]
+    months = [2, 3, 4, 5, 6, 7]
 
     page.departures.each do |departure|
       departure.offers.delete_all
+      departure.update(offers: [])
       offers = []
       months.each do |month|
         date = Date.current.weeks_since(month)
