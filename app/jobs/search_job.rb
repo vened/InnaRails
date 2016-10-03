@@ -26,9 +26,8 @@ class SearchJob < ApplicationJob
     months = [2, 3, 4, 5, 6, 7]
 
     page.departures.each do |departure|
-      departure.offers.delete_all
       departure.update(offers: [])
-      offers = []
+      departure.offers.delete_all
       months.each do |month|
         date = Date.current.weeks_since(month)
         startVoyageDate = date.beginning_of_week(:saturday)
