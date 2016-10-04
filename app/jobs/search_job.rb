@@ -22,8 +22,8 @@ class SearchJob < ApplicationJob
 
     page = Page.find_by(slug: slug)
 
-    months = [2,3]
-    # months = [2, 3, 4, 5, 6, 7]
+    # months = [2,3]
+    months = [2, 3, 4, 5, 6, 7]
 
     if page.departures.present?
       page.departures.each do |departure|
