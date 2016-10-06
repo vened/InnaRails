@@ -8,6 +8,7 @@ class Offer
   field :SearchDate, type: String
 
   field :Hotel, type: Object
+  field :Rooms, type: Object
   field :AviaInfo, type: Object
 
   embedded_in :departure

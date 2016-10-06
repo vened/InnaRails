@@ -15,34 +15,10 @@
             -month_1_format = l tour[:StartVoyageDate], :format => :custom
             -month_2_format = l tour[:EndVoyageDate], :format => :custom
 
-          - linkOffer = ["https://inna.ru/#/packages/details/",
-                  departure.DepartureId,
-                  "-",
-                  page["ArrivalId"],
-                  "-",
-                  "#{l tour[:StartVoyageDate], :format => :inna}",
-                  "-",
-                  "#{l tour[:EndVoyageDate], :format => :inna}",
-                  "-",
-                  tour[:AviaInfo][:CabineClass],
-                  "-",
-                  tour[:AviaInfo][:PassengerCount],
-                  "-",
-                  "-",
-                  tour[:Hotel][:HotelId],
-                  "-",
-                  tour[:AviaInfo][:VariantId1],
-                  "-",
-                  tour[:AviaInfo][:VariantId2],
-                  "-",
-                  tour[:Hotel][:ProviderId],
-                  "?departureSlug=#{page['url']}&SearchDate=#{tour[:SearchDate]}",
-          ].join
-
           a.LandingTour[
             data-title="Авиа + Отель, На двоих, #{month_1_format} - #{month_2_format}, от #{number_to_currency(tour[:Price], locale: :ru, precision: 0, unit: "руб.")}"
             data-content="#{departure_name}"
-            href="#{linkOffer}"
+            href="#{tour[:SearchUrl]}"
             target="_blank"
             ]
             .LandingTour__left
