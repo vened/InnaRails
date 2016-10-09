@@ -40,7 +40,7 @@ javascript:
       - departure_child = @page["departure"].present? ? child.departures.where(DepartureId: @page["departure"].DepartureId)[0] : nil
       - if departure_child.present?
         - child_page = Page.get_data(departure_child.slug)
-        -if child_page.pub.present?
+        -if child_page.["pub"].present?
           .Landing__Content id="#{child_page["url"]}"
             = render partial: "content", locals: {content: child_page, child: true}
             = render partial: "tours", locals: {departure_name: child_page["location_name"], departure: child_page["departure"], page: child_page}

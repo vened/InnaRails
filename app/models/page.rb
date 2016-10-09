@@ -157,6 +157,7 @@ class Page
         'bg'               => current_page.bg,
 
         'visa'             => current_page.visa,
+        'pub'              => current_page.pub,
 
         'ArrivalId'        => current_page.ArrivalId,
         'departure'        => departure,
