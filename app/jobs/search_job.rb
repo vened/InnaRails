@@ -13,22 +13,20 @@ class SearchJob < ApplicationJob
     else
       api_url = "https://api.inna.ru/api/v1/"
       url     = "http://lh.inna.ru/"
-      months  = [20]
+      months  = [2, 3]
     end
 
     page = Page.find_by(slug: slug)
 
     if page.departures.present?
       page.departures.each do |departure|
-        # departure.update(offers: [])
-        departure.offers.delete_all
-        # departure.offers = []
-        # departure.offers.save
         if departure.DepartureId.present?
+          departure.offers.delete_all
           months.each do |month|
             date            = Date.current.weeks_since(month)
             startVoyageDate = date.beginning_of_week(:saturday)
-            endVoyageDate   = date.end_of_week
+            endVoyageDate   = date + 7.day
+
             url_array       = [
                 api_url,
                 "Packages/SearchHotels?",
