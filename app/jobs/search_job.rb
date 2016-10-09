@@ -1,3 +1,4 @@
+require 'search/search_offers'
 class SearchJob < ApplicationJob
   queue_as :default
 
