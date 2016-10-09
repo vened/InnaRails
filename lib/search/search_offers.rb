@@ -125,7 +125,7 @@ class SearchOffers
           SearchDate:      searchDate,
           StartVoyageDate: params[:startVoyageDate].to_date,
           EndVoyageDate:   params[:endVoyageDate].to_date,
-          Price:           offer_details['Hotel']['PackagePrice'],
+          Price:           offer_details['Rooms'][0]['PackagePrice'],
           SearchUrl:       searchUrl,
           Hotel:           offer_details['Hotel'],
           Rooms:           offer_details['Rooms'],
