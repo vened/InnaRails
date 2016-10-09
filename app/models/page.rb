@@ -15,6 +15,7 @@ class Page
   field :bg, type: String, default: 'rgba(0,0,0,.3)'
   field :visa, type: Boolean, default: true
   field :pub, type: Boolean, default: false
+  field :schedule, type: String, default: "0 0 * * *"
 
   field :meta_title, type: String
   field :meta_keyword, type: String
@@ -76,6 +77,9 @@ class Page
       field :pub do
         label 'Опубликовать?'
       end
+      field :schedule do
+        label 'Периодичность обновления cron ситаксис, по умолчанию (0 0 * * * - каждую полноч)'
+      end
       field :image, :carrierwave do
         label 'Фото в шапку страницы'
       end
@@ -104,7 +108,11 @@ class Page
     # SearchJob.set(wait: 2.second).perform_later(self.slug)
     #   Sidekiq::Cron::Job.destroy_all!
     if self.ArrivalId.present?
-      Sidekiq::Cron::Job.create(name: "SearchJob #{self.title} - обновление каждый день в полноч", cron: "0 0 * * *", class: "SearchJob", args: self.slug)
+      if self.schedule.present?
+        Sidekiq::Cron::Job.create(name: "#{self.title}", cron: self.schedule, class: "SearchJob", args: self.slug)
+      else
+        Sidekiq::Cron::Job.create(name: "#{self.title}", cron: "0 0 * * *", class: "SearchJob", args: self.slug)
+      end
     end
     # self.update(pricing: false)
     # end
