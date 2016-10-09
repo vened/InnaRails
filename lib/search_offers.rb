@@ -142,7 +142,7 @@ class SearchOffers
     self.array_dates.each do |data|
       offers << self.get_offers(data[0], data[1])
     end
-    offers
+    offers.compact
   end
 
 end
