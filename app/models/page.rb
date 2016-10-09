@@ -15,7 +15,11 @@ class Page
   field :bg, type: String, default: 'rgba(0,0,0,.3)'
   field :visa, type: Boolean, default: true
   field :pub, type: Boolean, default: false
+
+  # настройки для поиска
   field :schedule, type: String, default: "0 0 * * *"
+  field :dates, type: String, default: ""
+
 
   field :meta_title, type: String
   field :meta_keyword, type: String
@@ -79,6 +83,9 @@ class Page
       end
       field :schedule do
         label 'Периодичность обновления cron ситаксис, по умолчанию (0 0 * * * - каждую полноч)'
+      end
+      field :dates do
+        label 'Массив дат на которые надо искать предложения, формат записи такой - 2016-10-22 2016-10-30, 2016-10-29 2016-11-08'
       end
       field :image, :carrierwave do
         label 'Фото в шапку страницы'
