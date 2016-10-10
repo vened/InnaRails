@@ -25,7 +25,7 @@ $(".LandingTour").on("click", function () {
         'event': 'UM.Event',
         'Data' : {
             'Category': 'Content',
-            'Action'  : 'CalendarItemClick',
+            'Action'  : 'LandingOfferItemClick',
             'Label'   : $(this).data("title"),
             'Content' : $(this).data('content'),
             'Context' : 'ContentCountry1',
