@@ -2,9 +2,9 @@ require 'search/search_offers'
 class SearchJob < ApplicationJob
   queue_as :default
 
-  def perform(slug)
+  def perform(id)
 
-    page = Page.find_by(slug: slug)
+    page = Page.find(id)
 
     if page.departures.present?
       page.departures.each do |departure|
