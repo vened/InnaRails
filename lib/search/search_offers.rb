@@ -140,7 +140,7 @@ class SearchOffers
   def offers
     offers = []
     self.array_dates.each do |data|
-      sleep 10
+      # sleep 10
       offers << self.get_offers(data[0], data[1])
     end
     offers.compact
