@@ -70,6 +70,9 @@ class SearchOffers
     else
       nil
     end
+
+    p url_array
+
   end
 
   def get_offer params
@@ -93,6 +96,8 @@ class SearchOffers
         "Filter[ProviderId]=#{params[:HotelProviderId]}&",
         "Rooms=true",
     ].join
+
+    p url_array_details
 
     offer_details = JSON.parse(open(url_array_details).read)
 
@@ -120,11 +125,6 @@ class SearchOffers
           params[:HotelProviderId],
           "?departureSlug=#{@departure_slug}&SearchDate=#{searchDate}",
       ].join
-
-      p "========"
-      p url_array_details
-      p searchUrl
-      p "========"
 
       offer = {
           SearchDate:      searchDate,
