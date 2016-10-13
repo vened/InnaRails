@@ -121,6 +121,11 @@ class SearchOffers
           "?departureSlug=#{@departure_slug}&SearchDate=#{searchDate}",
       ].join
 
+      p "========"
+      p url_array_details
+      p searchUrl
+      p "========"
+
       offer = {
           SearchDate:      searchDate,
           StartVoyageDate: params[:startVoyageDate].to_date,
