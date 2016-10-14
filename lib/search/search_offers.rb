@@ -57,6 +57,7 @@ class SearchOffers
     ].join
 
     p "-------"
+    p @departure_slug
     p url_array
     offer_list = JSON.parse(open(url_array).read)
     if offer_list
