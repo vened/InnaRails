@@ -2,7 +2,7 @@ require 'search/search_offers'
 class SearchJob < ApplicationJob
   queue_as :default
 
-  def perform(id)
+  def perform(id, slug)
 
     page = Page.find(id)
 
@@ -18,6 +18,8 @@ class SearchJob < ApplicationJob
 
 
           offers = search.offers
+
+          p offers.length
 
           if offers.present?
             departure.offers.delete_all

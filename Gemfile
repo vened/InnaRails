@@ -9,6 +9,7 @@ gem 'mongoid', git: 'git://github.com/mongodb/mongoid.git'
 # gem 'mongoid-ancestry'
 # gem 'mongoid-tree', :require => 'mongoid/tree'
 gem 'mongoid-tree', :git => 'git://github.com/benedikt/mongoid-tree'
+gem 'mongoid_i18n'
 
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin_rollincode', '~> 1.0'

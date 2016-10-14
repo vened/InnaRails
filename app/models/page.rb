@@ -116,9 +116,9 @@ class Page
     #   Sidekiq::Cron::Job.destroy_all!
     if self.ArrivalId.present?
       if self.schedule.present?
-        Sidekiq::Cron::Job.create(name: "#{self.title}", cron: self.schedule, class: "SearchJob", args: self.id)
+        Sidekiq::Cron::Job.create(name: "#{self.title}", cron: self.schedule, class: "SearchJob", args: [self.id, self.title])
       else
-        Sidekiq::Cron::Job.create(name: "#{self.title}", cron: "0 0 * * *", class: "SearchJob", args: self.id)
+        Sidekiq::Cron::Job.create(name: "#{self.title}", cron: "0 0 * * *", class: "SearchJob", args: [self.id, self.title])
       end
     end
     # self.update(pricing: false)
