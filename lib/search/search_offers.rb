@@ -56,6 +56,8 @@ class SearchOffers
         "TicketClass=0"
     ].join
 
+    p "-------"
+    p url_array
     offer_list = JSON.parse(open(url_array).read)
     if offer_list
       offer_params = {
@@ -95,6 +97,7 @@ class SearchOffers
         "Rooms=true",
     ].join
 
+    p url_array_details
     offer_details = JSON.parse(open(url_array_details).read)
 
 
